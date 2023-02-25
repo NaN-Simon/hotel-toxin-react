@@ -1,6 +1,6 @@
 import React from 'react';
 import Color from '../color/Color';
-import classes from './Colors.module.scss';
+import styles from './Colors.module.scss';
 
 interface IColorProps {
   id: number;
@@ -12,10 +12,10 @@ interface IColor {
   colorProps: IColorProps[];
 }
 
-const Colors = (props: IColor) => {
+const Colors = ({colorProps}: IColor) => {
   return (
-    <div className={classes['colors']}>
-      {props.colorProps.map((colorElement: IColorProps) => {
+    <div className={styles['colors']}>
+      {colorProps.map((colorElement: IColorProps) => {
         return <Color color={colorElement} key={colorElement.id} />;
       })}
     </div>

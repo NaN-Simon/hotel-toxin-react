@@ -1,7 +1,7 @@
 import React from 'react';
 import Colors from '../../components/colors/Colors';
 import Types from '../../components/types/Types';
-import classes from './ColorAndTypes.module.scss';
+import styles from './ColorAndTypes.module.scss';
 
 const colorDataArr = [
   {
@@ -78,12 +78,12 @@ const typeDataArr = [
 const ColorAndTypes = () => {
 
   return (
-    <div className={classes['color-and-types']}>
-      <header className={classes['color-and-types__header']}>
+    <div className={styles['color-and-types']}>
+      <header className={styles['color-and-types__header']}>
         Color And Types
       </header>
-      <main className={classes['color-and-types__main']}>
-        <div className={classes['color-and-types__container']}>
+      <main className={styles['color-and-types__main']}>
+        <div className={styles['color-and-types__container']}>
           <Colors colorProps={colorDataArr} />
           <Types typeProps={typeDataArr} />
         </div>

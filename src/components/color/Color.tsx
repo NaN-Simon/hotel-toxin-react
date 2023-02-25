@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './Color.module.scss';
+import styles from './Color.module.scss';
 
 interface IColorProps {
   color: {
@@ -11,18 +11,16 @@ interface IColorProps {
 }
 
 const Color = ({ color }: IColorProps) => {
-  // console.log(color);
-
   return (
-    <div className={classes['color__item']}>
+    <div className={styles['color__item']}>
       <div
         style={{ backgroundColor: color.color }}
-        className={classes['color__box']}
+        className={styles['color__box']}
       ></div>
 
-      <div className={classes['color__info']}>
-        <h2 className={classes['color__title']}>{color.title}</h2>
-        <p className={classes['color__hexName']}>{color.hexName}</p>
+      <div className={styles['color__info']}>
+        <h2 className={styles['color__title']}>{color.title}</h2>
+        <p className={styles['color__hexName']}>{color.hexName}</p>
       </div>
     </div>
   );
