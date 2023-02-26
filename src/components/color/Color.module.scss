@@ -11,24 +11,26 @@
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    margin: 0 0 20px 0;
+    margin: 0 0 20px;
   }
 
   &__box{
     width: 70px;
     height: 70px;
-    border-radius: 6px;
     background-color: #00000013;
+    border-radius: 6px;
   }
 
   &__info{
     padding-left: 40px;
   }
+
   &__title{
     display: flex;
     justify-content: flex-start;
-    color: $textColor;
     padding-bottom: 5px;
+    color: $textColor;
+
     @include font-h2
   }
 

@@ -18,14 +18,16 @@
     border: 1px solid $textColor_25;
     border-radius: inherit;
     outline: none;
-    box-shadow: 0px 0px 0px 0px $textColor_25;
+    box-shadow: 0 0 0 0 $textColor_25;
     transition: box-shadow, 0.6s;
+
     &:hover,
     &:focus {
-      box-shadow: 0px 0px 0px 2px $textColor_25;
+      box-shadow: 0 0 0 2px $textColor_25;
     }
+
     &--focused{
-      box-shadow: 0px 0px 0px 2px $textColor_25;
+      box-shadow: 0 0 0 2px $textColor_25;
     }
   }
 }

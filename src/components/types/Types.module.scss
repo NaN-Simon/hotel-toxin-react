@@ -15,6 +15,7 @@
     display: flex;
     margin-bottom: 51px;
     color: $textColor;
+
     @include font-h1;
   }
 
@@ -23,6 +24,7 @@
     margin-right: 20px;
     margin-bottom: 51px;
     color: $textColor;
+
     @include font-h2;
   }
 
@@ -30,12 +32,14 @@
     display: flex;
     margin-bottom: 49px;
     color: $textColor;
+
     @include font-h3;
   }
 
   &__body {
     display: flex;
     color: $textColor_75;
+
     @include font-body;
   }
 
