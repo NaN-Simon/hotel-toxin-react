@@ -13,7 +13,6 @@ export default function TextField({ type, placeholder, name, focused}: ITextFiel
 
   const focusedClass = [styles['text-field__input']]
   focused && focusedClass.push(styles['text-field__input--focused'])
-  console.log(focusedClass);
 
   return (
     <div className={styles['text-field']}>

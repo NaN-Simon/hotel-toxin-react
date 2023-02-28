@@ -4,7 +4,7 @@ import styles from './Heading.module.scss';
 interface IHeading {
     type: string;
     title: string;
-    description: string;
+    description?: string;
 }
 export default function Heading({type, title, description}: IHeading) {
   let titleClassList = ''
