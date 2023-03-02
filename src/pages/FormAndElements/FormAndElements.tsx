@@ -1,5 +1,6 @@
 import React, {useState, useCallback} from 'react';
 import CheckboxList from '../../components/checkboxList/CheckboxList';
+import Dropdown from '../../components/dropdown/Dropdown';
 import Heading from '../../components/heading/Heading';
 import TextField from '../../components/text-field/TextField';
 import styles from './FormAndElements.module.scss';
@@ -35,6 +36,8 @@ export default function FormAndElements() {
               <div className={styles['form-elements__large-wrapper']}>
                 <Heading type="h3" title="Checkbox Buttons" />
                 <CheckboxList checkboxProps={dataCheckboxList} onChange={onChange}/>
+                <Heading type="h3" title="Dropdown"/>
+                <Dropdown isOpened={true}/>
               </div>
             </div>
           </div>

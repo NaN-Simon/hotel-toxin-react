@@ -1,0 +1,54 @@
+@import '../../styles/mixins.scss';
+
+.counter{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 37px;
+  padding-right: 7px;
+  padding-left: 13px;
+  list-style-type: none;
+
+  &__title{
+    width: 100%;
+  }
+
+  &__calculate{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 97.5px;
+  }
+
+  &__btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 30px;
+    min-height: 30px;
+    color: rgb(31 32 65 / 50%);
+    border: 1px solid rgb(31 32 65 / 50%);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: .7s;
+
+    @include font-h3;
+
+    &--disabled{
+      color: rgb(31 32 65 / 25%);
+      border: 1px solid rgb(31 32 65 / 25%);
+      transition: .7s;
+    }
+
+    &:hover{
+      background: $elementColor;
+    }
+  }
+
+  &__count{
+    @include font-h3
+  }
+}

@@ -21,8 +21,8 @@
     box-shadow: 0 0 0 0 $textColor_25;
     transition: box-shadow, 0.6s;
 
-    &:hover,
-    &:focus {
+    &:not([disabled]):hover,
+    &:not([disabled]):focus {
       box-shadow: 0 0 0 2px $textColor_25;
     }
 
