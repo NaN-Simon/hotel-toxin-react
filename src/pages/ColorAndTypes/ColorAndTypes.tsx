@@ -1,6 +1,6 @@
 import React from 'react';
-import Colors from '../../components/colors/Colors';
-import Types from '../../components/types/Types';
+import Colors from '../../components/Colors/Colors';
+import Types from '../../components/Types/Types';
 import styles from './ColorAndTypes.module.scss';
 
 const colorDataArr = [

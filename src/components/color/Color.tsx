@@ -2,25 +2,23 @@ import React from 'react';
 import styles from './Color.module.scss';
 
 interface IColorProps {
-  color: {
-    id: number;
-    color: string;
-    title: string;
-    hexName: string;
-  };
+  id: number;
+  color: string;
+  title: string;
+  hexName: string;
 }
 
-const Color = ({ color }: IColorProps) => {
+const Color = ({ id, color, title, hexName }: IColorProps) => {
   return (
     <div className={styles['color__item']}>
       <div
-        style={{ backgroundColor: color.color }}
+        style={{ backgroundColor: color }}
         className={styles['color__box']}
       ></div>
 
       <div className={styles['color__info']}>
-        <h2 className={styles['color__title']}>{color.title}</h2>
-        <p className={styles['color__hexName']}>{color.hexName}</p>
+        <h2 className={styles['color__title']}>{title}</h2>
+        <p className={styles['color__hexName']}>{hexName}</p>
       </div>
     </div>
   );

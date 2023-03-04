@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './StartPage.module.scss';
-import Navigation from '../../components/navigation/Navigation';
+import Navigation from '../../components/Navigation/Navigation';
 export default function StartPage() {
   return (
     <main className={styles.wrapper}>

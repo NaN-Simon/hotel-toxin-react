@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './TextField.module.scss';
+import classNames from 'classnames';
 
 interface ITextField {
   type: string;
@@ -8,16 +9,21 @@ interface ITextField {
   focused?: boolean;
 }
 
-
-export default function TextField({ type, placeholder, name, focused}: ITextField) {
-
-  const focusedClass = [styles['text-field__input']]
-  focused && focusedClass.push(styles['text-field__input--focused'])
+export default function TextField({
+  type,
+  placeholder,
+  name,
+  focused,
+}: ITextField) {
+  const classesTextField = classNames(
+    styles['text-field__input'],
+    focused && styles['text-field__input--focused']
+  );
 
   return (
     <div className={styles['text-field']}>
       <input
-        className={focusedClass.join(' ')}
+        className={classesTextField}
         data-type="input"
         type={type}
         placeholder={placeholder}

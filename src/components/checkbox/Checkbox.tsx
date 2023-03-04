@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Checkbox.module.scss';
+import classNames from 'classnames';
 
 interface ICheckbox {
   id: number;
@@ -21,8 +22,9 @@ const Checkbox = ({id, title,name,checked, onChange}: ICheckbox) => {
         onChange={(e) => onChange(id, e.currentTarget.checked)}
         value='face'
       />
-      <span className={['material-icons', styles['checkbox__box']].join(' ')}></span>
-      <span className={styles.checkbox__span}>{title}</span>
+
+      <span className={classNames('material-icons', styles['checkbox__box'])}></span>
+      <span className={styles['checkbox__span']}>{title}</span>
     </label>
   )
 }

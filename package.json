@@ -11,6 +11,8 @@
     "@types/node": "^16.18.12",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
+    "@typescript-eslint/parser": "^5.54.0",
+    "classnames": "^2.3.2",
     "eslint": "^8.34.0",
     "eslint-plugin-react": "^7.32.2",
     "material-design-icons-iconfont": "^6.7.0",
@@ -35,6 +37,18 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
+    "parser": "@typescript-eslint/parser",
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended"
+    ],
+    "parserOptions": {
+      "ecmaVersion": "latest",
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true
+      }
+    },
     "overrides": [
       {
         "files": [
@@ -46,12 +60,13 @@
           "no-unused-vars": "off"
         }
       }
-    ],
-    "extends": [
-      "eslint:recommended",
-      "plugin:react/recommended"
     ]
   },
+  "eslintIgnore": [
+    "coverage",
+    "dist",
+    "node_modules"
+  ],
   "stylelint": {
     "extends": [
       "stylelint-config-standard",

@@ -1,5 +1,5 @@
 import React from 'react';
-import Color from '../color/Color';
+import Color from '../Color/Color';
 import styles from './Colors.module.scss';
 
 interface IColorProps {
@@ -8,15 +8,24 @@ interface IColorProps {
   title: string;
   hexName: string;
 }
+
 interface IColor {
   colorProps: IColorProps[];
 }
 
-const Colors = ({colorProps}: IColor) => {
+const Colors = ({ colorProps }: IColor) => {
   return (
     <div className={styles['colors']}>
-      {colorProps.map((colorElement: IColorProps) => {
-        return <Color color={colorElement} key={colorElement.id} />;
+      {colorProps.map((item) => {
+        return (
+          <Color
+            key={item.id}
+            id={item.id}
+            color={item.color}
+            title={item.title}
+            hexName={item.hexName}
+          />
+        );
       })}
     </div>
   );

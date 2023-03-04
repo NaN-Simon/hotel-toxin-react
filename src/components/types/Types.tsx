@@ -1,5 +1,6 @@
 import React from 'react';
 import classes from './Types.module.scss';
+import classNames from 'classnames';
 
 interface ITypesProps {
   id: string;
@@ -12,16 +13,26 @@ interface IType {
   typeProps: ITypesProps[];
 }
 
-const Types = (props: IType) => {
+const Types = ({ typeProps }: IType) => {
   return (
     <ul className={classes['type']}>
-      {props.typeProps.map((colorElement: ITypesProps) => {
-        const [tagClasses, descriptionClasses] = addTypeClass(colorElement);
-
+      {typeProps.map((colorElement: ITypesProps) => {
         return (
           <li className={classes['type__item']} key={colorElement.id}>
-            <div className={tagClasses.join(' ')}>{colorElement.tag}</div>
-            <div className={descriptionClasses.join(' ')}>
+            <div
+              className={classNames(
+                classes['type__tag'],
+                classes[`type__${colorElement.type}`]
+              )}
+            >
+              {colorElement.tag}
+            </div>
+            <div
+              className={classNames(
+                classes['type__description'],
+                classes[`type__${colorElement.type}`]
+              )}
+            >
               {colorElement.description}
             </div>
           </li>
@@ -30,30 +41,5 @@ const Types = (props: IType) => {
     </ul>
   );
 };
-
-function addTypeClass(item: ITypesProps) {
-  const tagClasses = [classes.type__tag];
-  const descriptionClasses = [classes.type__description];
-
-  switch (item.type) {
-    case 'h1':
-      tagClasses.push(classes.type__h1);
-      descriptionClasses.push(classes.type__h1);
-      break;
-    case 'h2':
-      tagClasses.push(classes.type__h2);
-      descriptionClasses.push(classes.type__h2);
-      break;
-    case 'h3':
-      tagClasses.push(classes.type__h3);
-      descriptionClasses.push(classes.type__h3);
-      break;
-    default:
-      tagClasses.push(classes.type__body);
-      descriptionClasses.push(classes.type__body);
-      break;
-  }
-  return [tagClasses, descriptionClasses];
-}
 
 export default Types;

@@ -7,7 +7,7 @@
   margin-top: 2px;
   margin-bottom: 6px;
 
-  &__title_type_h1 {
+  &__title-type-h1 {
     @include font-h1;
 
     color: $textColor;
@@ -17,7 +17,7 @@
     }
   }
 
-  &__title_type_h2 {
+  &__title-type-h2 {
     @include font-h2;
 
     color: $textColor;
@@ -27,7 +27,7 @@
     }
   }
 
-  &__title_type_h3 {
+  &__title-type-h3 {
     @include font-h3;
 
     color: $textColor;

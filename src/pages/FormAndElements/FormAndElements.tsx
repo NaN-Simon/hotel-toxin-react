@@ -1,8 +1,8 @@
 import React, {useState, useCallback} from 'react';
-import CheckboxList from '../../components/checkboxList/CheckboxList';
-import Dropdown from '../../components/dropdown/Dropdown';
-import Heading from '../../components/heading/Heading';
-import TextField from '../../components/text-field/TextField';
+import CheckboxList from '../../components/CheckboxList/CheckboxList';
+import Dropdown from '../../components/Dropdown/Dropdown';
+import Heading from '../../components/Heading/Heading';
+import TextField from '../../components/Text-field/TextField';
 import styles from './FormAndElements.module.scss';
 
 export default function FormAndElements() {

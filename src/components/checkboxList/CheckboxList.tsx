@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './CheckboxList.module.scss';
-import Checkbox from '../checkbox/Checkbox';
+import Checkbox from '../Checkbox/Checkbox';
 
 interface IChecked {
   id: number;
@@ -17,7 +17,7 @@ interface ICheckedArr {
 const CheckboxList = ({ checkboxProps, onChange }: ICheckedArr) => {
   return (
     <div>
-      <form className = {styles.checkboxList__form}>
+      <form className = {styles['checkboxList__form']}>
         {checkboxProps.map((item) => {
           return (
             <Checkbox
