@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './Counter.module.scss';
 import classNames from 'classnames';
 
@@ -6,7 +6,7 @@ interface ICounter {
   id: number;
   title: string;
   value: number;
-  onCountChange: (count: number) => void;
+  onCountChange: (id: number, count: number) => void;
 }
 
 const MIN = 0;
@@ -14,6 +14,7 @@ const MAX = 99;
 
 const Counter = ({ id, title, value, onCountChange }: ICounter) => {
   const [count, setCount] = useState(value);
+  useEffect(() => onCountChange(id, count), [count]);
 
   const classesDecrement = classNames(
     styles['counter__btn'],
@@ -26,15 +27,13 @@ const Counter = ({ id, title, value, onCountChange }: ICounter) => {
 
   function increment() {
     if (count < MAX) {
-      onCountChange(1);
       setCount((count) => count + 1);
     }
   }
 
   function decrement() {
     if (count > MIN) {
-      onCountChange(-1);
-      setCount((count) => count -1);
+      setCount((count) => count - 1);
     }
   }
 

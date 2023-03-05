@@ -8,10 +8,10 @@ const pluralArray = ['гость', 'гостя', 'гостей'];
 const dataPeople = [
   { id: 1, title: 'Взрослые', name: 'adult', value: 0 },
   { id: 2, title: 'Дети', name: 'child', value: 99 },
-  { id: 3, title: 'Младенцы', name: 'baby', value: 1 },
+  { id: 3, title: 'Младенцы', name: 'baby', value: 2 },
 ];
 
-const valueSum = dataPeople.reduce((sum, cur) => sum + cur.value, 0);
+const valueSum = () => dataPeople.reduce((sum, cur) => sum + cur.value, 0);
 
 interface IDropdown {
   id: number;
@@ -27,10 +27,19 @@ interface IOpened {
 const Dropdown = ({ isOpened }: IOpened) => {
   const [dataDropdown, setDataDropdown] = useState(dataPeople);
   const [opened, setOpened] = useState(isOpened || false);
-  let [placeholderValue, setPlaceholderValue] = useState(valueSum);
+  const [placeholderValue, setPlaceholderValue] = useState(valueSum());
 
-  const onCountChange = (count: number) => {
-    setPlaceholderValue((placeholderValue) => (placeholderValue += count));
+  const onCountChange = (id: number, count: number) => {
+    setDataDropdown(
+      dataDropdown.map((counterItem) => {
+        if (counterItem.id === id) {
+          counterItem.value = count;
+        }
+        return counterItem;
+      })
+    );
+
+    setPlaceholderValue((placeholderValue) => (placeholderValue = valueSum()));
   };
 
   const placeholderEnding = () => {
