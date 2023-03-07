@@ -1,0 +1,9 @@
+@import '../../styles/mixins.scss';
+
+.text-field{
+  @include text-field
+}
+
+.text-field__input{
+  @include text-field__input
+}

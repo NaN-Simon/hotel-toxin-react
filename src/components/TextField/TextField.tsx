@@ -3,14 +3,12 @@ import styles from './TextField.module.scss';
 import classNames from 'classnames';
 
 interface ITextField {
-  type: string;
   placeholder: string;
   name: string;
   focused?: boolean;
 }
 
 export default function TextField({
-  type,
   placeholder,
   name,
   focused,
@@ -24,8 +22,7 @@ export default function TextField({
     <div className={styles['text-field']}>
       <input
         className={classesTextField}
-        data-type="input"
-        type={type}
+        type='text'
         placeholder={placeholder}
         name={name}
       />

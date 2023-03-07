@@ -16,9 +16,20 @@
     margin: 0 auto;
   }
 
+  &__text-fields-buttons{
+    display: flex;
+    flex-direction: row;
+  }
+
   &__text-fields{
     display: flex;
     flex-direction: column;
+  }
+
+  &__checkboxes{
+    display: flex;
+    flex-direction: column;
+    padding-left: 55px;
   }
 
   &__large-wrapper{

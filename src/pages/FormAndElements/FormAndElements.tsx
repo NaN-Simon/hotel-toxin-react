@@ -2,7 +2,8 @@ import React, {useState, useCallback} from 'react';
 import CheckboxList from '../../components/CheckboxList/CheckboxList';
 import Dropdown from '../../components/Dropdown/Dropdown';
 import Heading from '../../components/Heading/Heading';
-import TextField from '../../components/Text-field/TextField';
+import TextField from '../../components/TextField/TextField';
+import TextFieldMask from '../../components/TextFieldMask/TextFieldMask';
 import styles from './FormAndElements.module.scss';
 
 export default function FormAndElements() {
@@ -27,17 +28,25 @@ export default function FormAndElements() {
             <div className={styles['form-elements__text-fields']}>
               <div className={styles['form-elements__large-wrapper']}>
                 <Heading type="h3" title="TEXT FIELD" description="DEFAULT" />
-                <TextField type = 'text' placeholder="Email" name="email" />
+                <TextField placeholder="Email" name="email" />
               </div>
               <div className={styles['form-elements__large-wrapper']}>
                 <Heading type="h3" title="TEXT FIELD" description="HOVER/FOCUS" />
-                <TextField type = 'text' placeholder="This is pretty awesome" name="email2" focused={true} />
+                <TextField placeholder="This is pretty awesome" name="email2" focused={true} />
               </div>
+              <div className={styles['form-elements__large-wrapper']}>
+                <Heading type="h3" title="MASKED TEXT FIELD" />
+                <TextFieldMask mask="99-99-9999" placeholder="ДД.ММ.ГГГГ" name="date"/>
+              </div>
+              <div className={styles['form-elements__large-wrapper']}>
+                <Heading type="h3" title="Dropdown"/>
+                <Dropdown/>
+              </div>
+            </div>
+            <div className={styles['form-elements__checkboxes']}>
               <div className={styles['form-elements__large-wrapper']}>
                 <Heading type="h3" title="Checkbox Buttons" />
                 <CheckboxList checkboxProps={dataCheckboxList} onChange={onChange}/>
-                <Heading type="h3" title="Dropdown"/>
-                <Dropdown isOpened={true}/>
               </div>
             </div>
           </div>
