@@ -2,6 +2,7 @@ import React, {useState, useCallback} from 'react';
 import CheckboxList from '../../components/CheckboxList/CheckboxList';
 import Dropdown from '../../components/Dropdown/Dropdown';
 import Heading from '../../components/Heading/Heading';
+import RadioButton from '../../components/RadioButton/RadioButton';
 import TextField from '../../components/TextField/TextField';
 import TextFieldMask from '../../components/TextFieldMask/TextFieldMask';
 import styles from './FormAndElements.module.scss';
@@ -47,6 +48,9 @@ export default function FormAndElements() {
               <div className={styles['form-elements__large-wrapper']}>
                 <Heading type="h3" title="Checkbox Buttons" />
                 <CheckboxList checkboxProps={dataCheckboxList} onChange={onChange}/>
+              </div>
+              <div className={styles['form-elements__large-wrapper']}>
+                <RadioButton/>
               </div>
             </div>
           </div>

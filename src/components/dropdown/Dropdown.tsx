@@ -25,7 +25,7 @@ interface IOpened {
 }
 
 const Dropdown = ({ isOpened }: IOpened) => {
-  const [dataDropdown, setDataDropdown] = useState(dataPeople);
+  const [dataDropdown, setDataDropdown] = useState<IDropdown[]>(dataPeople);
   const [opened, setOpened] = useState(isOpened || false);
   const [placeholderValue, setPlaceholderValue] = useState(valueSum());
 
