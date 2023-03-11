@@ -5,6 +5,7 @@ import Heading from '../../components/Heading/Heading';
 import RadioButton from '../../components/RadioButton/RadioButton';
 import TextField from '../../components/TextField/TextField';
 import TextFieldMask from '../../components/TextFieldMask/TextFieldMask';
+import DateDropdown from '../../components/DateDropdown/DateDropdown';
 import styles from './FormAndElements.module.scss';
 
 export default function FormAndElements() {
@@ -42,6 +43,10 @@ export default function FormAndElements() {
               <div className={styles['form-elements__large-wrapper']}>
                 <Heading type="h3" title="Dropdown"/>
                 <Dropdown/>
+              </div>
+              <div className={styles['form-elements__large-wrapper']}>
+                <Heading type="h3" title="Date dropdown"/>
+                <DateDropdown/>
               </div>
             </div>
             <div className={styles['form-elements__checkboxes']}>

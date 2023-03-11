@@ -1,0 +1,19 @@
+@import '../../styles/mixins.scss';
+
+.text-field{
+  @include text-field
+}
+
+.text-field__input{
+  border-radius: inherit;
+
+  @include text-field__input
+}
+
+.date-picker-btns{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 15px;
+}

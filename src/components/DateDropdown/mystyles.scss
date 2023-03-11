@@ -1,0 +1,38 @@
+.react-datepicker-popper{
+  width: 100%;
+}
+
+.react-datepicker{
+  width: 100%;
+  min-height: 369px;
+}
+
+.react-datepicker-wrapper{
+  border-radius: inherit;
+}
+
+.react-datepicker__input-container{
+  border-radius: inherit;
+}
+
+.react-datepicker__month-container{
+  width: 100%;
+}
+
+.react-datepicker__day{
+  display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  width: 40px;
+  height: 40px;
+    margin: 0;
+}
+
+.react-datepicker__children-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
