@@ -28,7 +28,7 @@ export default function FormAndElements() {
         <div className={styles['form-elements__container']}>
           <div className={styles['form-elements__text-fields-buttons']}>
             <div className={styles['form-elements__text-fields']}>
-              <div className={styles['form-elements__large-wrapper']}>
+               <div className={styles['form-elements__large-wrapper']}>
                 <Heading type="h3" title="TEXT FIELD" description="DEFAULT" />
                 <TextField placeholder="Email" name="email" />
               </div>
@@ -49,7 +49,7 @@ export default function FormAndElements() {
                 <DateDropdown/>
               </div>
             </div>
-            <div className={styles['form-elements__checkboxes']}>
+{/*             <div className={styles['form-elements__checkboxes']}>
               <div className={styles['form-elements__large-wrapper']}>
                 <Heading type="h3" title="Checkbox Buttons" />
                 <CheckboxList checkboxProps={dataCheckboxList} onChange={onChange}/>
@@ -57,7 +57,7 @@ export default function FormAndElements() {
               <div className={styles['form-elements__large-wrapper']}>
                 <RadioButton/>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </main>

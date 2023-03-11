@@ -1,10 +1,15 @@
-import React, { useState } from 'react';
+import React, { forwardRef, useState } from 'react';
 import DatePicker from 'react-datepicker';
+import TextFieldMask from '../TextFieldMask/TextFieldMask';
+// import MaskedTextInput from "react-text-mask";
 import { getMonth, getYear, getDate } from 'date-fns';
 import 'react-datepicker/dist/react-datepicker.css';
 import ru from 'date-fns/locale/ru';
 import styles from './DateDropdown.module.scss';
 import './mystyles.scss';
+
+
+
 const range = (start: number, end: number) => {
   return new Array(end - start).fill(undefined).map((d, i) => i + start);
 };
@@ -43,6 +48,13 @@ const DateDropdown = () => {
   return (
     <div className={styles['text-field']}>
       <DatePicker
+        // customInput={
+        //   <TextFieldMask
+        //     mask="99-99-9999"
+        //     placeholder="ДД.ММ.ГГГГ"
+        //     name="date2"
+        //   />
+        // }
         locale={ru}
         className={styles['text-field__input']}
         dateFormat="dd.MM.yyyy"
