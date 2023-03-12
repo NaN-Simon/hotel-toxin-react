@@ -15,9 +15,15 @@
   border-radius: inherit;
 }
 
+.react-datepicker__header{
+  background-color: transparent;
+  border: none;
+}
+
 .react-datepicker__month-container{
   width: 100%;
 }
+
 
 .react-datepicker__day{
   display: inline-flex;

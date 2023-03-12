@@ -1,21 +1,19 @@
-import React, { forwardRef, useState } from 'react';
+import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import TextFieldMask from '../TextFieldMask/TextFieldMask';
-// import MaskedTextInput from "react-text-mask";
+import classNames from 'classnames';
 import { getMonth, getYear, getDate } from 'date-fns';
-import 'react-datepicker/dist/react-datepicker.css';
 import ru from 'date-fns/locale/ru';
+import 'react-datepicker/dist/react-datepicker.css';
 import styles from './DateDropdown.module.scss';
-import './mystyles.scss';
-
-
+import './dateDropdown.scss';
 
 const range = (start: number, end: number) => {
   return new Array(end - start).fill(undefined).map((d, i) => i + start);
 };
 const years = range(1990, getYear(new Date()));
 const months = [
-  'Яеварь',
+  'Январь',
   'Февраль',
   'Март',
   'Апрель',
@@ -33,6 +31,8 @@ const renderDayContents = (day: number, date: Date) => {
 };
 
 const DateDropdown = () => {
+  const [openedMonth, setOpenedMonth] = useState(false);
+  const [openedYear, setOpenedYear] = useState(false);
   const [startDate, setStartDate] = useState<Date | null>(null);
   const [endDate, setEndDate] = useState<Date | null>(null);
   const onChange = (dates: [Date | null, Date | null]) => {
@@ -45,28 +45,34 @@ const DateDropdown = () => {
     setEndDate(null);
   };
 
+  const classesHidenMonths = classNames(
+    styles['date-picker__hiden-months'],
+    openedMonth && styles['date-picker__hiden-months--open']
+  );
+  const classesHidenYears = classNames(
+    styles['date-picker__hiden-years'],
+    openedYear && styles['date-picker__hiden-years--open']
+  );
+
   return (
     <div className={styles['text-field']}>
       <DatePicker
-        // customInput={
-        //   <TextFieldMask
-        //     mask="99-99-9999"
-        //     placeholder="ДД.ММ.ГГГГ"
-        //     name="date2"
-        //   />
-        // }
+        customInput={
+          <TextFieldMask
+            mask="99.99.9999 - 99.99.9999"
+            placeholder="ДД.ММ.ГГГГ"
+            name="date2"
+          />
+        }
         locale={ru}
         className={styles['text-field__input']}
         dateFormat="dd.MM.yyyy"
         placeholderText="ДД.ММ.ГГГГ"
         renderDayContents={renderDayContents}
-        // onChange={(date) => setStartDate(date)}
-        // selected={startDate}
         selectsRange
         onChange={onChange}
         startDate={startDate}
         endDate={endDate}
-        isClearable
         // inline
         renderCustomHeader={({
           date,
@@ -88,29 +94,67 @@ const DateDropdown = () => {
               {'<'}
             </button>
 
-            <select
-              value={months[getMonth(date)]}
-              onChange={({ target: { value } }) =>
-                changeMonth(months.indexOf(value))
-              }
-            >
-              {months.map((option) => (
-                <option key={option} value={option}>
-                  {option}
-                </option>
-              ))}
-            </select>
+            <div className={styles['date-picker__months']}>
+              <div
+                className={styles['date-picker__title-month']}
+                onClick={() => setOpenedMonth(!openedMonth)}
+              >
+                {months[getMonth(date)]}
+              </div>
 
-            <select
-              value={getYear(date)}
-              onChange={({ target: { value } }) => changeYear(+value)}
-            >
-              {years.map((option) => (
-                <option key={option} value={option}>
-                  {option}
-                </option>
-              ))}
-            </select>
+              <ul className={classesHidenMonths}>
+                {months.map((month, index) => {
+                  return (
+                    <li
+                      className={styles['date-picker__month']}
+                      id={index.toString()}
+                      key={month}
+                      data-value={month}
+                      onClick={({ target }) => {
+                        const dataValue = (
+                          target as HTMLTextAreaElement
+                        ).getAttribute('data-value');
+                        dataValue && changeMonth(months.indexOf(dataValue));
+                        setOpenedMonth(!openedMonth);
+                      }}
+                    >
+                      {month}
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+
+            <div className={styles['date-picker__years']}>
+              <div
+                className={styles['date-picker__title-year']}
+                onClick={() => setOpenedYear(!openedYear)}
+              >
+                {date.getFullYear()}
+              </div>
+
+              <ul className={classesHidenYears}>
+                {years.map((year, index) => {
+                  return (
+                    <li
+                      className={styles['date-picker__year']}
+                      id={index.toString()}
+                      key={year}
+                      data-value={year}
+                      onClick={(event) => {
+                        const dataValue = (
+                          event.target as HTMLTextAreaElement
+                        ).getAttribute('data-value');
+                        dataValue && changeYear(+dataValue);
+                        setOpenedYear(!openedYear);
+                      }}
+                    >
+                      {year}
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
 
             <button onClick={increaseMonth} disabled={nextMonthButtonDisabled}>
               {'>'}
@@ -118,9 +162,9 @@ const DateDropdown = () => {
           </div>
         )}
       >
-        <div className={styles['date-picker-btns']}>
+        <div className={styles['date-picker__btns']}>
           <button onClick={clean}>Очистить</button>
-          <button>Принять</button>
+          <button onClick={()=> onChange}>Принять</button>
         </div>
       </DatePicker>
     </div>
