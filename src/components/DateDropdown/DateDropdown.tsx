@@ -53,6 +53,7 @@ const DateDropdown = () => {
     styles['date-picker__hiden-years'],
     openedYear && styles['date-picker__hiden-years--open']
   );
+  const classesBtnArrow = classNames('material-icons', styles['date-picker__arrow']);
 
   return (
     <div className={styles['text-field']}>
@@ -73,7 +74,6 @@ const DateDropdown = () => {
         onChange={onChange}
         startDate={startDate}
         endDate={endDate}
-        // inline
         renderCustomHeader={({
           date,
           changeYear,
@@ -90,8 +90,11 @@ const DateDropdown = () => {
               justifyContent: 'center',
             }}
           >
-            <button onClick={decreaseMonth} disabled={prevMonthButtonDisabled}>
-              {'<'}
+            <button
+              className={classesBtnArrow}
+              onClick={decreaseMonth}
+              disabled={prevMonthButtonDisabled}>
+              arrow_back
             </button>
 
             <div className={styles['date-picker__months']}>
@@ -156,8 +159,11 @@ const DateDropdown = () => {
               </ul>
             </div>
 
-            <button onClick={increaseMonth} disabled={nextMonthButtonDisabled}>
-              {'>'}
+            <button
+              className={classesBtnArrow}
+              onClick={increaseMonth}
+              disabled={nextMonthButtonDisabled}>
+            arrow_forward
             </button>
           </div>
         )}

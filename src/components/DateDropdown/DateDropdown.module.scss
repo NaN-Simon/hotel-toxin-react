@@ -15,6 +15,7 @@
   &__months{
     width: 100%;
   }
+
   &__years{
     width: 100%;
   }
@@ -23,6 +24,7 @@
     padding: 5px;
     cursor: pointer;
   }
+
   &__year{
     padding: 5px;
     cursor: pointer;
@@ -30,52 +32,65 @@
 
   &__title-month{
     cursor: pointer;
+
     @include font-h2
   }
+
   &__title-year{
     cursor: pointer;
+
     @include font-h2
   }
 
   &__hiden-months{
-    list-style-type: none;
     display: none;
+    list-style-type: none;
 
 
     &--open{
-      display: block;
       position: absolute;
-      left: 0;
       top: 55%;
-      background: white;
+      left: 0;
+      display: block;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
       width: 100%;
       height: 295px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: 5px;
+      padding-top: 5px;
+      background: white;
     }
 
   }
 
   &__hiden-years{
-    list-style-type: none;
     display: none;
+    list-style-type: none;
 
     &--open{
-      display: block;
       position: absolute;
-      left: 0;
       top: 55%;
-      background: white;
+      left: 0;
+      display: block;
       width: 100%;
-      overflow-y: scroll;
       height: 320px;
+      overflow-y: scroll;
+      background: white;
     }
   }
 
+  &__arrow{
+    color: $elementColor;
+    background: transparent;
+    border: none;
+    cursor: pointer;
 
+    &:hover {
+      color: $textColor_50;
+      transition: 0.5s;
+    }
+  }
 
   &__btns{
     display: flex;
