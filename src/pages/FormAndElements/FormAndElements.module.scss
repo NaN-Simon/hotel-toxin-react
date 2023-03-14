@@ -32,9 +32,20 @@
     padding-left: 55px;
   }
 
+  &__big-wrapper{
+    min-width: 222px;
+    max-width: 222px;
+    margin-bottom: 18px;
+  }
+
   &__large-wrapper{
     min-width: 320px;
     max-width: 320px;
     margin-bottom: 18px;
+  }
+
+  &__like-button-container{
+    display: flex;
+    gap: 10px;
   }
 }
