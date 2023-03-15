@@ -1,4 +1,4 @@
-import React, {useState, useCallback} from 'react';
+import React from 'react';
 import CheckboxList from '../../components/CheckboxList/CheckboxList';
 import Dropdown from '../../components/Dropdown/Dropdown';
 import Heading from '../../components/Heading/Heading';
@@ -9,6 +9,7 @@ import DateDropdown from '../../components/DateDropdown/DateDropdown';
 import ToggleButtonList from '../../components/ToggleButtonList/ToggleButtonList';
 import styles from './FormAndElements.module.scss';
 import LikeButton from '../../components/LikeButton/LikeButton';
+import RangeSlider from '../../components/RangeSlider/RangeSlider';
 
 export default function FormAndElements() {
   return (
@@ -58,8 +59,18 @@ export default function FormAndElements() {
                 <Heading type="h3" title="Like button" />
                 <div className={styles['form-elements__like-button-container']}>
                   <LikeButton id={1} title={2} name='like'/>
-                  <LikeButton id={1} title={12} name='like' checked={true}/>
+                  <LikeButton id={2} title={12} name='like' checked={true}/>
                 </div>
+              </div>
+              <div className={styles['form-elements__large-wrapper']}>
+                <Heading type="h3" title="RANGE SLIDER" />
+                <RangeSlider
+                  min={0}
+                  max={15000}
+                  count={0}
+                  range={true}
+                  step={100}
+                  startValue={[5000, 10000]}/>
               </div>
             </div>
           </div>

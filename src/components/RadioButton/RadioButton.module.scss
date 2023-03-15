@@ -25,8 +25,8 @@
     display: inline-flex;
     align-items: center;
     line-height: 14px;
-    user-select: none;
     cursor: pointer;
+    user-select: none;
   }
 
   & + label::before {
