@@ -64,3 +64,13 @@
     box-shadow: 0 0 0 2px $textColor_25;
   }
 }
+
+@mixin datepicker-range-selector{
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  width: 20px;
+  height: inherit;
+  background: rgba($elementColor, 0.5);
+  content: "";
+}

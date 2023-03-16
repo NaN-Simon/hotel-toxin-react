@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
-import styles from './RangeSlider.module.scss';
+import './RangeSlider.scss';
 
 interface IRangeSlider {
   min: number;
@@ -12,6 +12,7 @@ interface IRangeSlider {
   range?: boolean;
   vertical?: boolean;
 }
+
 const RangeSlider = ({
   min,
   max,
@@ -24,8 +25,8 @@ const RangeSlider = ({
   const [value, setValue] = useState(startValue);
   const [inputValue, setInputValue] = useState(value);
   return (
-    <div className={styles['range-slider']}>
-      <div className={styles['range-slider__scoreboard']}>
+    <div className={'range-slider'}>
+      <div className={'range-slider__scoreboard'}>
         {Array.isArray(inputValue)
           ? inputValue.join('₽ - ') + '₽'
           : inputValue + '₽'}

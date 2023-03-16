@@ -62,6 +62,8 @@ export default function FormAndElements() {
                   <LikeButton id={2} title={12} name='like' checked={true}/>
                 </div>
               </div>
+            </div>
+            <div className={styles['form-elements__buttons']}>
               <div className={styles['form-elements__large-wrapper']}>
                 <Heading type="h3" title="RANGE SLIDER" />
                 <RangeSlider

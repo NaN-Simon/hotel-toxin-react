@@ -32,6 +32,12 @@
     padding-left: 55px;
   }
 
+  &__buttons{
+    display: flex;
+    flex-direction: column;
+    padding-left: 55px;
+  }
+
   &__big-wrapper{
     min-width: 222px;
     max-width: 222px;

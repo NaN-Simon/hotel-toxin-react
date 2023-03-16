@@ -5,8 +5,7 @@ import classNames from 'classnames';
 import { getMonth, getYear, getDate } from 'date-fns';
 import ru from 'date-fns/locale/ru';
 import 'react-datepicker/dist/react-datepicker.css';
-import styles from './DateDropdown.module.scss';
-import './dateDropdown.scss';
+import './DateDropdown.scss';
 
 const range = (start: number, end: number) => {
   return new Array(end - start).fill(undefined).map((d, i) => i + start);
@@ -46,17 +45,17 @@ const DateDropdown = () => {
   };
 
   const classesHidenMonths = classNames(
-    styles['date-picker__hiden-months'],
-    openedMonth && styles['date-picker__hiden-months--open']
+    'date-picker__hiden-months',
+    openedMonth && 'date-picker__hiden-months--open'
   );
   const classesHidenYears = classNames(
-    styles['date-picker__hiden-years'],
-    openedYear && styles['date-picker__hiden-years--open']
+    'date-picker__hiden-years',
+    openedYear && 'date-picker__hiden-years--open'
   );
-  const classesBtnArrow = classNames('material-icons', styles['date-picker__arrow']);
+  const classesBtnArrow = classNames('material-icons', 'date-picker__arrow');
 
   return (
-    <div className={styles['text-field']}>
+    <div className={'text-field'}>
       <DatePicker
         customInput={
           <TextFieldMask
@@ -66,7 +65,7 @@ const DateDropdown = () => {
           />
         }
         locale={ru}
-        className={styles['text-field__input']}
+        className={'text-field__input'}
         dateFormat="dd.MM.yyyy"
         placeholderText="ДД.ММ.ГГГГ"
         renderDayContents={renderDayContents}
@@ -97,9 +96,9 @@ const DateDropdown = () => {
               arrow_back
             </button>
 
-            <div className={styles['date-picker__months']}>
+            <div className={'date-picker__months'}>
               <div
-                className={styles['date-picker__title-month']}
+                className={'date-picker__title-month'}
                 onClick={() => setOpenedMonth(!openedMonth)}
               >
                 {months[getMonth(date)]}
@@ -109,7 +108,7 @@ const DateDropdown = () => {
                 {months.map((month, index) => {
                   return (
                     <li
-                      className={styles['date-picker__month']}
+                      className={'date-picker__month'}
                       id={index.toString()}
                       key={month}
                       data-value={month}
@@ -128,9 +127,9 @@ const DateDropdown = () => {
               </ul>
             </div>
 
-            <div className={styles['date-picker__years']}>
+            <div className={'date-picker__years'}>
               <div
-                className={styles['date-picker__title-year']}
+                className={'date-picker__title-year'}
                 onClick={() => setOpenedYear(!openedYear)}
               >
                 {date.getFullYear()}
@@ -140,7 +139,7 @@ const DateDropdown = () => {
                 {years.map((year, index) => {
                   return (
                     <li
-                      className={styles['date-picker__year']}
+                      className={'date-picker__year'}
                       id={index.toString()}
                       key={year}
                       data-value={year}
@@ -168,7 +167,7 @@ const DateDropdown = () => {
           </div>
         )}
       >
-        <div className={styles['date-picker__btns']}>
+        <div className={'date-picker__btns'}>
           <button onClick={clean}>Очистить</button>
           <button onClick={()=> onChange}>Принять</button>
         </div>
