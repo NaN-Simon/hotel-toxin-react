@@ -1,0 +1,84 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/base.scss';
+
+.button{
+  display: flex;
+  justify-content: space-between;
+  min-width: 100px;
+  min-height: inherit;
+
+  &__colored{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: inherit;
+    height: inherit;
+    padding: 0 5px;
+    color: $mainBackground;
+    background: $btnGradient;
+    border: none;
+    border-radius: 22px;
+    outline: none;
+    cursor: pointer;
+    transition: 0.5s;
+
+    @include font-h3;
+
+    &:hover {
+      opacity: 0.5;
+    }
+
+    &__transparent {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: inherit;
+      height: inherit;
+      padding: 0 5px;
+      color: $elementColor;
+      background: transparent;
+      border: 2px solid $elementColor;
+      border-radius: 22px;
+      outline: none;
+      cursor: pointer;
+      transition: 0.5s;
+
+      @include font-h3;
+
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $elementColor;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: 0.5s;
+
+    @include font-h3;
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+
+  &--disable{
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  &__arrow{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
