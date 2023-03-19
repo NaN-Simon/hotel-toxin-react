@@ -3,12 +3,13 @@ import React from 'react';
 import styles from './Button.module.scss';
 
 interface IButton {
-  title: string;
   type: string;
   arrow?: boolean;
   disable?: boolean;
+  onClick?: () => void;
+  children?: React.ReactNode;
 }
-const Button = ({ title, type, arrow, disable }: IButton) => {
+const Button = ({ type, arrow, disable, onClick, children }: IButton) => {
   const classesButton = classNames(
     styles['button'],
     type === 'colored' && styles['button__colored'],
@@ -24,12 +25,17 @@ const Button = ({ title, type, arrow, disable }: IButton) => {
   }
 
   return (
-    <button style={arrow
-    ? {justifyContent:'space-between'}
-    : {justifyContent:'center'}}
-    className={classesButton}>
+    <button
+      className={classesButton}
+      style={
+        arrow
+          ? { justifyContent: 'space-between' }
+          : { justifyContent: 'center' }
+      }
+      onClick={onClick}
+    >
       {arrow && <span></span>}
-      {title}
+      {children}
       {arrow && hasArrow()}
     </button>
   );

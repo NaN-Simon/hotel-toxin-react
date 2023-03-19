@@ -1,6 +1,12 @@
 @import '../../styles/mixins.scss';
 
+
 .form-elements{
+  &__main{
+    display: flex;
+
+  }
+
   &__header{
     @include font-h1;
 
@@ -80,5 +86,26 @@
       height: 44px;
       margin-bottom: 15px;
     }
+  }
+}
+
+@media (max-width: 1080px){
+  .form-elements{
+    &__container{
+      flex-direction: column
+    }
+
+    &__text-fields-buttons{
+      flex-direction: column
+    }
+
+    &__checkboxes{
+      padding-left: 0;
+    }
+
+    &__buttons{
+      padding-left: 0;
+    }
+
   }
 }

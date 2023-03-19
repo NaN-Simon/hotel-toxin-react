@@ -6,6 +6,7 @@ import { getMonth, getYear, getDate } from 'date-fns';
 import ru from 'date-fns/locale/ru';
 import 'react-datepicker/dist/react-datepicker.css';
 import './DateDropdown.scss';
+import Button from '../Button/Button';
 
 const range = (start: number, end: number) => {
   return new Array(end - start).fill(undefined).map((d, i) => i + start);
@@ -34,6 +35,7 @@ const DateDropdown = () => {
   const [openedYear, setOpenedYear] = useState(false);
   const [startDate, setStartDate] = useState<Date | null>(null);
   const [endDate, setEndDate] = useState<Date | null>(null);
+  const [inputArrow, setInputArrow] = useState('expand_less');
   const onChange = (dates: [Date | null, Date | null]) => {
     const [start, end] = dates;
     setStartDate(start);
@@ -43,6 +45,8 @@ const DateDropdown = () => {
     setStartDate(null);
     setEndDate(null);
   };
+  const handleCalendarClose = () => setInputArrow('expand_less');
+  const handleCalendarOpen = () => setInputArrow('expand_more');
 
   const classesHidenMonths = classNames(
     'date-picker__hiden-months',
@@ -53,16 +57,15 @@ const DateDropdown = () => {
     openedYear && 'date-picker__hiden-years--open'
   );
   const classesBtnArrow = classNames('material-icons', 'date-picker__arrow');
-
+  const classesInputArrow = classNames(
+    'material-icons',
+    'date-picker__input-arrow'
+  );
   return (
-    <div className={'text-field'}>
+    <div className={'date-picker__wrapper'}>
       <DatePicker
         customInput={
-          <TextFieldMask
-            mask="99.99.9999 - 99.99.9999"
-            placeholder="ДД.ММ.ГГГГ"
-            name="date2"
-          />
+          <TextFieldMask mask="99.99.9999 - 99.99.9999" name="date2" />
         }
         locale={ru}
         className={'text-field__input'}
@@ -73,6 +76,8 @@ const DateDropdown = () => {
         onChange={onChange}
         startDate={startDate}
         endDate={endDate}
+        onCalendarClose={handleCalendarClose}
+        onCalendarOpen={handleCalendarOpen}
         renderCustomHeader={({
           date,
           changeYear,
@@ -92,7 +97,8 @@ const DateDropdown = () => {
             <button
               className={classesBtnArrow}
               onClick={decreaseMonth}
-              disabled={prevMonthButtonDisabled}>
+              disabled={prevMonthButtonDisabled}
+            >
               arrow_back
             </button>
 
@@ -161,17 +167,23 @@ const DateDropdown = () => {
             <button
               className={classesBtnArrow}
               onClick={increaseMonth}
-              disabled={nextMonthButtonDisabled}>
-            arrow_forward
+              disabled={nextMonthButtonDisabled}
+            >
+              arrow_forward
             </button>
           </div>
         )}
       >
         <div className={'date-picker__btns'}>
-          <button onClick={clean}>Очистить</button>
-          <button onClick={()=> onChange}>Принять</button>
+          <Button type="link" onClick={clean}>
+            Очистить
+          </Button>
+          <Button type="link" onClick={() => onChange}>
+            Принять
+          </Button>
         </div>
       </DatePicker>
+      <div className={classesInputArrow}>{inputArrow}</div>
     </div>
   );
 };

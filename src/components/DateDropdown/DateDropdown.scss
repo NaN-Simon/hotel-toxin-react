@@ -12,6 +12,10 @@
 }
 
 .date-picker{
+  &__wrapper{
+    position: relative;
+  }
+
   &__months{
     width: 100%;
   }
@@ -101,10 +105,19 @@
     width: 100%;
     padding: 0 15px;
   }
+
+  &__input-arrow{
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    color: $textColor_50;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
 }
 
 .react-datepicker{
-  width: 100%;
+  width: 320px;
   min-height: 369px;
   font-family: $mainFont;
   border: none;
@@ -125,6 +138,7 @@
 
   &__month-container{
     width: 100%;
+    padding-bottom: 20px;
   }
 
   &__children-container{

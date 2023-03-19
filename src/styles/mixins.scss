@@ -44,6 +44,7 @@
 }
 
 @mixin text-field__input {
+  display: flex;
   width: inherit;
   height: 44px;
   padding: 0 15px;

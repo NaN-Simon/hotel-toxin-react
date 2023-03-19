@@ -20,48 +20,59 @@ export default function FormAndElements() {
       <main className={styles['form-elements__main']}>
         <div className={styles['form-elements__container']}>
           <div className={styles['form-elements__text-fields-buttons']}>
-
             <div className={styles['form-elements__text-fields']}>
-               <div className={styles['form-elements__large-wrapper']}>
+              <div className={styles['form-elements__large-wrapper']}>
                 <Heading type="h3" title="TEXT FIELD" description="DEFAULT" />
                 <TextField placeholder="Email" name="email" />
               </div>
               <div className={styles['form-elements__large-wrapper']}>
-                <Heading type="h3" title="TEXT FIELD" description="HOVER/FOCUS" />
-                <TextField placeholder="This is pretty awesome" name="email2" focused />
+                <Heading
+                  type="h3"
+                  title="TEXT FIELD"
+                  description="HOVER/FOCUS"
+                />
+                <TextField
+                  placeholder="This is pretty awesome"
+                  name="email2"
+                  focused
+                />
               </div>
               <div className={styles['form-elements__large-wrapper']}>
                 <Heading type="h3" title="MASKED TEXT FIELD" />
-                <TextFieldMask mask="99-99-9999" placeholder="ДД.ММ.ГГГГ" name="date"/>
+                <TextFieldMask
+                  mask="99-99-9999"
+                  placeholder="ДД.ММ.ГГГГ"
+                  name="date"
+                />
               </div>
               <div className={styles['form-elements__large-wrapper']}>
-                <Heading type="h3" title="Dropdown"/>
-                <Dropdown/>
+                <Heading type="h3" title="Dropdown" />
+                <Dropdown />
               </div>
               <div className={styles['form-elements__large-wrapper']}>
-                <Heading type="h3" title="Date dropdown"/>
-                <DateDropdown/>
+                <Heading type="h3" title="Filter date dropdown" />
+                <DateDropdown />
               </div>
             </div>
 
             <div className={styles['form-elements__checkboxes']}>
               <div className={styles['form-elements__large-wrapper']}>
                 <Heading type="h3" title="Checkbox Buttons" />
-                <CheckboxList/>
+                <CheckboxList />
               </div>
               <div className={styles['form-elements__big-wrapper']}>
                 <Heading type="h3" title="RADIO BUTTONS" />
-                <RadioButton/>
+                <RadioButton />
               </div>
               <div className={styles['form-elements__large-wrapper']}>
                 <Heading type="h3" title="Toggle" />
-                <ToggleButtonList/>
+                <ToggleButtonList />
               </div>
               <div className={styles['form-elements__large-wrapper']}>
                 <Heading type="h3" title="Like button" />
                 <div className={styles['form-elements__like-button-container']}>
-                  <LikeButton id={1} title={2} name='like'/>
-                  <LikeButton id={2} title={12} name='like' checked/>
+                  <LikeButton id={1} title={2} name="like" />
+                  <LikeButton id={2} title={12} name="like" checked />
                 </div>
               </div>
             </div>
@@ -75,24 +86,33 @@ export default function FormAndElements() {
                   count={0}
                   range={true}
                   step={100}
-                  startValue={[5000, 10000]}/>
+                  startValue={[5000, 10000]}
+                />
               </div>
               <div className={styles['form-elements__large-wrapper']}>
                 <Heading type="h3" title="Buttons" />
                 <div className={styles['form-elements__btn-container-type1']}>
-                  <Button title='click me' type='colored'/>
-                  <Button title='click me' type='colored' disable/>
+                  <Button type="colored">click me</Button>
+                  <Button type="colored" disable>
+                    click me
+                  </Button>
                 </div>
                 <div className={styles['form-elements__btn-container-type2']}>
-                  <Button title='click me' type='tranparent'/>
-                  <Button title='click me' type='tranparent' disable/>
+                  <Button type="tranparent">click me</Button>
+                  <Button type="tranparent" disable>
+                    click me
+                  </Button>
                 </div>
                 <div className={styles['form-elements__btn-container-type1']}>
-                  <Button title='click me' type='link'/>
-                  <Button title='click me' type='link' disable/>
+                  <Button type="link">click me</Button>
+                  <Button type="link" disable>
+                    click me
+                  </Button>
                 </div>
                 <div className={styles['form-elements__btn-container-type3']}>
-                  <Button title='перейти к оплате' type='colored' arrow/>
+                  <Button type="colored" arrow>
+                    перейти к оплате
+                  </Button>
                 </div>
               </div>
             </div>
