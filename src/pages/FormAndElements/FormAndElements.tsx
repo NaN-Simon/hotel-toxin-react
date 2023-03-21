@@ -11,6 +11,7 @@ import ToggleButtonList from '../../components/ToggleButtonList/ToggleButtonList
 import LikeButton from '../../components/LikeButton/LikeButton';
 import RangeSlider from '../../components/RangeSlider/RangeSlider';
 import Button from '../../components/Button/Button';
+import Paginate from '../../components/Paginate/Paginate';
 export default function FormAndElements() {
   return (
     <div className={styles['color-and-types']}>
@@ -114,6 +115,11 @@ export default function FormAndElements() {
                     перейти к оплате
                   </Button>
                 </div>
+              </div>
+              <div className={styles['form-elements__large-wrapper']}>
+                <Heading type="h3" title="PAGINATION" />
+                <Paginate itemsPerPage={4}/>
+                <div id='container'></div>
               </div>
             </div>
           </div>
