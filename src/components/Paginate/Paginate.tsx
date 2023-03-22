@@ -3,46 +3,40 @@ import ReactPaginate from 'react-paginate';
 import './Paginate.scss';
 
 type SelectedItem = { selected: number };
-type ItemsPerPage = { itemsPerPage: number };
+type ItemsPerPage = { itemsPerPage: number, itemCounts: number };
 type CurrentItems = { currentItems: number[] };
 
-const itemCounts = 120
-const items: number[] = []
-
-for(let i = 0; i < itemCounts;i++){
-  items.push(i)
-}
 
 function Items({ currentItems }: CurrentItems) {
   return (
-    <>
+    <ul className='paginate__list'>
       {currentItems &&
         currentItems.map((item: number) => (
-          <div key={item}>
-            <h3>Item #{item}</h3>
+          <div className='paginate__item' key={item}>
+            {item}
           </div>
         ))}
-    </>
+    </ul>
   );
 }
 
-const Paginate = ({ itemsPerPage }: ItemsPerPage) => {
-  // Here we use item offsets; we could also use page offsets
-  // following the API or data you're working with.
+const Paginate = ({ itemsPerPage, itemCounts }: ItemsPerPage) => {
+  const maxDisplayCounts = 100
+  const moreThanCount = itemCounts > maxDisplayCounts ? `${maxDisplayCounts}+` : itemCounts
+  const items: number[] = []
+
+  for(let i = 1; i <= itemCounts;i++){
+    items.push(i)
+  }
+
   const [itemOffset, setItemOffset] = useState(0);
 
-  // Simulate fetching items from another resources.
-  // (This could be items from props; or items loaded in a local state
-  // from an API endpoint with useEffect and useState)
   const endOffset = itemOffset + itemsPerPage;
-  // console.log(`Loading items from ${itemOffset} to ${endOffset}`);
   const currentItems = items.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(items.length / itemsPerPage);
 
-  // Invoke when user click to request another page.
   const handlePageClick = (event: SelectedItem) => {
     const newOffset = (event.selected * itemsPerPage) % items.length;
-    // console.log(`User requested page number ${event.selected}, which is offset ${newOffset}`);
     setItemOffset(newOffset);
   };
 
@@ -51,12 +45,20 @@ const Paginate = ({ itemsPerPage }: ItemsPerPage) => {
       <Items currentItems={currentItems} />
       <ReactPaginate
         breakLabel="..."
-        nextLabel="next >"
+        nextLabel="arrow_forward"
         onPageChange={handlePageClick}
-        pageRangeDisplayed={2}
+        pageRangeDisplayed={1}
+        marginPagesDisplayed={2}
         pageCount={pageCount}
-        previousLabel="< previous"
+        previousLabel=""
+        containerClassName='navigate__container'
+        pageClassName='navigate__page'
+        breakClassName='navigate__break'
+        previousClassName='navigate__previous'
+        nextClassName='navigate__next'
+        nextLinkClassName='material-icons'
       />
+      <div>{`${itemOffset + 1} - ${endOffset} из ${moreThanCount} вариантов аренды`}</div>
     </>
   );
 }

@@ -118,8 +118,7 @@ export default function FormAndElements() {
               </div>
               <div className={styles['form-elements__large-wrapper']}>
                 <Heading type="h3" title="PAGINATION" />
-                <Paginate itemsPerPage={4}/>
-                <div id='container'></div>
+                <Paginate itemCounts={180} itemsPerPage={8}/>
               </div>
             </div>
           </div>

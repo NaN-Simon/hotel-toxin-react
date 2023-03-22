@@ -64,7 +64,7 @@
       width: 100%;
       height: 295px;
       padding-top: 5px;
-      background: #fff;
+      background: $mainBackground;
     }
 
   }
@@ -82,7 +82,7 @@
       width: 100%;
       height: 320px;
       overflow-y: scroll;
-      background: #fff;
+      background: $mainBackground;
     }
   }
 
@@ -182,7 +182,7 @@
     }
 
     &--today:not(.react-datepicker__day--in-range, .react-datepicker__day--in-selecting-range){
-      color: #fff;
+      color: $mainBackground;
       background-color: $elementColor;
       border-radius: 50%;
     }
