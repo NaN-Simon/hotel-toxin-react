@@ -12,6 +12,8 @@ import LikeButton from '../../components/LikeButton/LikeButton';
 import RangeSlider from '../../components/RangeSlider/RangeSlider';
 import Button from '../../components/Button/Button';
 import Paginate from '../../components/Paginate/Paginate';
+import RateButton from '../../components/RateButton/RateButton';
+
 export default function FormAndElements() {
   return (
     <div className={styles['color-and-types']}>
@@ -74,6 +76,13 @@ export default function FormAndElements() {
                 <div className={styles['form-elements__like-button-container']}>
                   <LikeButton id={1} title={2} name="like" />
                   <LikeButton id={2} title={12} name="like" checked />
+                </div>
+              </div>
+              <div className={styles['form-elements__large-wrapper']}>
+                <Heading type="h3" title="rate button" />
+                <div className={styles['form-elements__rate-button-container']}>
+                  <RateButton id={1} maxrate={5} rate={4}/>
+                  <RateButton id={2} maxrate={5} rate={5}/>
                 </div>
               </div>
             </div>

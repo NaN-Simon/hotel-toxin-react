@@ -1,0 +1,8 @@
+@import '../../styles/base.scss';
+
+.rate-button{
+  &__item{
+    color: $elementColor;
+    cursor: default;
+  }
+}

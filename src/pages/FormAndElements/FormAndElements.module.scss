@@ -61,6 +61,12 @@
     gap: 10px;
   }
 
+  &__rate-button-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
   &__btn-container{
     &-type1{
       display: flex;
