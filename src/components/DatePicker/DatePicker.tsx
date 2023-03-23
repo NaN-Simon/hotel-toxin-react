@@ -1,12 +1,22 @@
 import React, { useState } from 'react';
-import DatePicker from 'react-datepicker';
-import TextFieldMask from '../TextFieldMask/TextFieldMask';
-import classNames from 'classnames';
 import { getMonth, getYear, getDate } from 'date-fns';
 import ru from 'date-fns/locale/ru';
-import 'react-datepicker/dist/react-datepicker.css';
-import './DateDropdown.scss';
+import DatePicker from 'react-datepicker';
+import TextFieldMask from '../TextFieldMask/TextFieldMask';
 import Button from '../Button/Button';
+import classNames from 'classnames';
+import 'react-datepicker/dist/react-datepicker.css';
+import './DatePicker.scss';
+
+type ISelectsRange = {
+  name: string;
+  mask: string;
+  selectsRange?: boolean;
+  inline?: boolean;
+};
+
+type IOnChangeRange = [Date | null, Date | null];
+type IOnChangeSingle = Date | null;
 
 const range = (start: number, end: number) => {
   return new Array(end - start).fill(undefined).map((d, i) => i + start);
@@ -30,21 +40,31 @@ const renderDayContents = (day: number, date: Date) => {
   return <span title={date.toString()}>{getDate(date)}</span>;
 };
 
-const DateDropdown = () => {
+const DatePickerCustom = ({
+  name,
+  selectsRange,
+  inline,
+  mask,
+}: ISelectsRange) => {
   const [openedMonth, setOpenedMonth] = useState(false);
   const [openedYear, setOpenedYear] = useState(false);
   const [startDate, setStartDate] = useState<Date | null>(null);
   const [endDate, setEndDate] = useState<Date | null>(null);
   const [inputArrow, setInputArrow] = useState('expand_less');
-  const onChange = (dates: [Date | null, Date | null]) => {
-    const [start, end] = dates;
-    setStartDate(start);
-    setEndDate(end);
+  const onChange = (dates: IOnChangeRange | IOnChangeSingle) => {
+    if (Array.isArray(dates)) {
+      const [start, end] = dates;
+      setStartDate(start);
+      setEndDate(end);
+    } else {
+      setStartDate(dates);
+    }
   };
   const clean = () => {
     setStartDate(null);
     setEndDate(null);
   };
+
   const handleCalendarClose = () => setInputArrow('expand_less');
   const handleCalendarOpen = () => setInputArrow('expand_more');
 
@@ -59,21 +79,22 @@ const DateDropdown = () => {
   const classesBtnArrow = classNames('material-icons', 'date-picker__arrow');
   const classesInputArrow = classNames(
     'material-icons',
-    'date-picker__input-arrow'
+    'date-picker__input-arrow',
+    inline && 'date-picker__input-arrow--disable'
   );
   return (
     <div className={'date-picker__wrapper'}>
       <DatePicker
-        customInput={
-          <TextFieldMask mask="99.99.9999 - 99.99.9999" name="date2" />
-        }
+        inline={inline}
+        customInput={<TextFieldMask mask={mask} name={name} />}
         locale={ru}
+        selected={startDate}
         className={'text-field__input'}
         dateFormat="dd.MM.yyyy"
         placeholderText="ДД.ММ.ГГГГ"
         renderDayContents={renderDayContents}
-        selectsRange
-        onChange={onChange}
+        selectsRange={selectsRange}
+        onChange={(dates) => onChange(dates)}
         startDate={startDate}
         endDate={endDate}
         onCalendarClose={handleCalendarClose}
@@ -188,4 +209,4 @@ const DateDropdown = () => {
   );
 };
 
-export default DateDropdown;
+export default DatePickerCustom;

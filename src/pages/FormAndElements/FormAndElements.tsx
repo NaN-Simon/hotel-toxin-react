@@ -6,7 +6,7 @@ import Heading from '../../components/Heading/Heading';
 import RadioButton from '../../components/RadioButton/RadioButton';
 import TextField from '../../components/TextField/TextField';
 import TextFieldMask from '../../components/TextFieldMask/TextFieldMask';
-import DateDropdown from '../../components/DateDropdown/DateDropdown';
+import DatePickerCustom from '../../components/DatePicker/DatePicker';
 import ToggleButtonList from '../../components/ToggleButtonList/ToggleButtonList';
 import LikeButton from '../../components/LikeButton/LikeButton';
 import RangeSlider from '../../components/RangeSlider/RangeSlider';
@@ -53,8 +53,15 @@ export default function FormAndElements() {
                 <Dropdown />
               </div>
               <div className={styles['form-elements__large-wrapper']}>
+                <Heading type="h3" title="Date dropdown" />
+                <div className={styles['form-elements__datepicker-container']}>
+                <DatePickerCustom name='datePicker1' mask="99.99.9999"/>
+                <DatePickerCustom name='datePicker2' mask="99.99.9999"/>
+                </div>
+              </div>
+              <div className={styles['form-elements__large-wrapper']}>
                 <Heading type="h3" title="Filter date dropdown" />
-                <DateDropdown />
+                <DatePickerCustom name='datePicker3' mask="99.99.9999 - 99.99.9999" selectsRange/>
               </div>
             </div>
 
@@ -130,6 +137,7 @@ export default function FormAndElements() {
                 <Paginate itemCounts={180} itemsPerPage={8}/>
               </div>
             </div>
+
           </div>
         </div>
       </main>

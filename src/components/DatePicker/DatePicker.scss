@@ -113,6 +113,10 @@
     color: $textColor_50;
     transform: translateY(-50%);
     pointer-events: none;
+
+    &--disable{
+      display: none;
+    }
   }
 }
 
@@ -162,6 +166,13 @@
     font-size: 14px;
     border-radius: 0;
 
+    &--keyboard-selected{
+      color: $mainBackground;
+      font-weight: 700;
+      background-color: $elementColor;
+      border-radius: 50%;
+    }
+
     &:hover{
       background-color: $elementColor;
       border-radius: 0;
@@ -197,6 +208,7 @@
       &-start{
         position: relative;
         z-index: 1;
+        color: $mainBackground;
         background-color: $elementColor !important;
         border-radius: 50%;
 
@@ -229,6 +241,8 @@
       &-start{
         position: relative;
         z-index: 1;
+        color: $mainBackground;
+        font-weight: 700;
         background-color: $elementColor !important;
         border-radius: 50%;
 
@@ -242,6 +256,8 @@
       &-end{
         position: relative;
         z-index: 1;
+        color: $mainBackground;
+        font-weight: 700;
         background-color: $elementColor !important;
         border-radius: 50%;
 
