@@ -1,9 +1,18 @@
 @import '../../styles/mixins.scss';
+@import '../../styles/base.scss';
 
 .text-field{
-  @include text-field
-}
+  @include text-field;
 
-.text-field__input{
-  @include text-field__input
+  &__input{
+    @include text-field__input;
+  }
+
+  &__arrow{
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    color: $elementColor;
+    transform: translateY(-50%);
+  }
 }

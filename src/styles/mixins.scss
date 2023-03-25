@@ -64,6 +64,10 @@
   &--focused{
     box-shadow: 0 0 0 2px $textColor_25;
   }
+
+  &--arrow{
+    padding: 0 35px 0 15px;
+  }
 }
 
 @mixin datepicker-range-selector{

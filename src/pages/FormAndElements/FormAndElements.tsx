@@ -63,6 +63,10 @@ export default function FormAndElements() {
                 <Heading type="h3" title="Filter date dropdown" />
                 <DatePickerCustom name='datePicker3' mask="99.99.9999 - 99.99.9999" selectsRange/>
               </div>
+              <div className={styles['form-elements__large-wrapper']}>
+                <Heading type="h3" title="SUBSCRIPTION TEXT FIELD" />
+                <TextField placeholder="Email" name="email-sub" arrow />
+              </div>
             </div>
 
             <div className={styles['form-elements__checkboxes']}>
