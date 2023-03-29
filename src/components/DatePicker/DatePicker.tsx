@@ -139,10 +139,8 @@ const DatePickerCustom = ({
                       id={index.toString()}
                       key={month}
                       data-value={month}
-                      onClick={({ target }) => {
-                        const dataValue = (
-                          target as HTMLTextAreaElement
-                        ).getAttribute('data-value');
+                      onClick={(event: React.MouseEvent<HTMLElement>) => {
+                        const dataValue = (event.target as HTMLElement).getAttribute('data-value');
                         dataValue && changeMonth(months.indexOf(dataValue));
                         setOpenedMonth(!openedMonth);
                       }}
@@ -170,10 +168,8 @@ const DatePickerCustom = ({
                       id={index.toString()}
                       key={year}
                       data-value={year}
-                      onClick={(event) => {
-                        const dataValue = (
-                          event.target as HTMLTextAreaElement
-                        ).getAttribute('data-value');
+                      onClick={(event: React.MouseEvent<HTMLElement>) => {
+                        const dataValue = (event.target as HTMLElement).getAttribute('data-value');
                         dataValue && changeYear(+dataValue);
                         setOpenedYear(!openedYear);
                       }}

@@ -14,6 +14,7 @@ interface ITextFieldMask {
 
 const TextFieldMask = forwardRef(
   (props: ITextFieldMask, ref: LegacyRef<ReactInputMask> | undefined) => {
+    
     const classesTextField = classNames(
       styles['text-field__input'],
       props.focused && styles['text-field__input--focused']

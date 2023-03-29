@@ -31,7 +31,9 @@ const Paginate = ({ itemsPerPage, itemCounts }: ItemsPerPage) => {
 
   const [itemOffset, setItemOffset] = useState(0);
 
-  const endOffset = itemOffset + itemsPerPage;
+  let endOffset = itemOffset + itemsPerPage;
+  endOffset > itemCounts ? endOffset = itemCounts : false
+  
   const currentItems = items.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(items.length / itemsPerPage);
 

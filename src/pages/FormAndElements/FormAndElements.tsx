@@ -23,6 +23,7 @@ export default function FormAndElements() {
       <main className={styles['form-elements__main']}>
         <div className={styles['form-elements__container']}>
           <div className={styles['form-elements__text-fields-buttons']}>
+            
             <div className={styles['form-elements__text-fields']}>
               <div className={styles['form-elements__large-wrapper']}>
                 <Heading type="h3" title="TEXT FIELD" description="DEFAULT" />

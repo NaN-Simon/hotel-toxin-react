@@ -9,7 +9,6 @@ interface ITextField {
   focused?: boolean;
 }
 
-const classesArrow = classNames('material-icons', styles['text-field__arrow']);
 
 export default function TextField({
   placeholder,
@@ -17,6 +16,9 @@ export default function TextField({
   arrow,
   focused,
 }: ITextField) {
+  const classesArrow = classNames(
+    'material-icons', 
+    styles['text-field__arrow']);
   const classesTextField = classNames(
     styles['text-field__input'],
     focused && styles['text-field__input--focused'],
