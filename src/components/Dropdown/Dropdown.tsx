@@ -3,56 +3,41 @@ import Counter from '../Counter/Counter';
 import styles from './Dropdown.module.scss';
 import classNames from 'classnames';
 
-const pluralArray = ['гость', 'гостя', 'гостей'];
+const pluralGuests = ['гость', 'гостя', 'гостей'];
+const pluralBedroom = ['спальня', 'спальни', 'спален'];
+const pluralBed = ['кровать', 'кровати', 'кроватей'];
 
-const dataPeople = [
+const dataGuests = [
   { id: 1, title: 'Взрослые', name: 'adult', value: 0 },
-  { id: 2, title: 'Дети', name: 'child', value: 99 },
+  { id: 2, title: 'Дети', name: 'child', value: 1 },
   { id: 3, title: 'Младенцы', name: 'baby', value: 2 },
 ];
 
-const valueSum = () => dataPeople.reduce((sum, cur) => sum + cur.value, 0);
+const dataRoom = [
+  { id: 1, title: 'Спальни', name: 'bedroom', value: 0 },
+  { id: 2, title: 'Кровати', name: 'bed', value: 1 },
+  { id: 3, title: 'Ванные комнаты', name: 'bathroom', value: 2 },
+  { id: 4, title: 'Балконы', name: 'balcony', value: 1 },
+];
 
-interface IDropdown {
+interface IDropdownData {
   id: number;
   title: string;
   name: string;
   value: number;
 }
 
-interface IOpened {
+interface IDropdown {
   isOpened?: boolean;
+  preset?: string;
 }
 
-const Dropdown = ({ isOpened }: IOpened) => {
-  const [dataDropdown, setDataDropdown] = useState<IDropdown[]>(dataPeople);
-  const [opened, setOpened] = useState(isOpened || false);
-  const [placeholderValue, setPlaceholderValue] = useState(valueSum());
+const Dropdown = ({ isOpened, preset }: IDropdown) => {
+  const dataPreset = preset === 'room' ? dataRoom : dataGuests;
+  const valueSum = () => dataPreset.reduce((sum, cur) => sum + cur.value, 0);
 
-  const onCountChange = (id: number, count: number) => {
-    setDataDropdown(
-      dataDropdown.map((counterItem) => {
-        if (counterItem.id === id) {
-          counterItem.value = count;
-        }
-        return counterItem;
-      })
-    );
-
-    setPlaceholderValue((placeholderValue) => (placeholderValue = valueSum()));
-  };
-
-  const placeholderEnding = () => {
-    let ending = ' ';
-    if (placeholderValue % 10 === 1) {
-      ending += pluralArray[0];
-    } else if (placeholderValue % 10 > 1 && placeholderValue % 10 < 5) {
-      ending += pluralArray[1];
-    } else {
-      ending += pluralArray[2];
-    }
-    return ending;
-  };
+  const [dataDropdown, setDataDropdown] = useState<IDropdownData[]>(dataPreset);
+  const [opened, setOpened] = useState(isOpened);
 
   const classesDropdown = classNames(
     styles['dropdown'],
@@ -67,6 +52,49 @@ const Dropdown = ({ isOpened }: IOpened) => {
     opened && styles['dropdown__open']
   );
 
+  const updateDropdown = (id: number, count: number) => {
+    setDataDropdown(
+      dataDropdown.map((counterItem) => {
+        if (counterItem.id === id) {
+          counterItem.value = count;
+        }
+        return counterItem;
+      })
+    );
+  };
+
+  const getPlural = (number: number, pluralPreset: string[]) => {
+    let plural = ' ';
+    if (number % 10 === 1) {
+      plural += pluralPreset[0];
+    } else if (number % 10 > 1 && number % 10 < 5) {
+      plural += pluralPreset[1];
+    } else {
+      plural += pluralPreset[2];
+    }
+    return plural;
+  };
+
+  const placeholderGuests = () => {
+    const placeholder =
+      valueSum() === 0
+        ? 'Сколько гостей'
+        : valueSum().toString() +
+          getPlural(valueSum(), pluralGuests);
+    return placeholder;
+  };
+
+  const placeholderRooms = () => {
+    let result = `${dataRoom[0].value} ${getPlural(
+      dataRoom[0].value,
+      pluralBedroom
+    )}, ${dataRoom[1].value} ${getPlural(
+      dataRoom[1].value,
+      pluralBed)}...`;
+
+    return result;
+  };
+
   return (
     <div className={classesDropdown}>
       <div
@@ -78,9 +106,7 @@ const Dropdown = ({ isOpened }: IOpened) => {
           readOnly
           type="text"
           placeholder={
-            placeholderValue === 0
-              ? 'Сколько гостей'
-              : placeholderValue.toString() + placeholderEnding()
+            preset === 'room' ? placeholderRooms() : placeholderGuests()
           }
           name="dropdown"
         />
@@ -91,14 +117,14 @@ const Dropdown = ({ isOpened }: IOpened) => {
       </div>
 
       <div className={classesDropdownDrop}>
-        {dataDropdown.map((item: IDropdown) => {
+        {dataDropdown.map((item: IDropdownData) => {
           return (
             <Counter
               key={item.id}
               id={item.id}
               title={item.title}
               value={item.value}
-              onCountChange={onCountChange}
+              onChange={updateDropdown}
             />
           );
         })}

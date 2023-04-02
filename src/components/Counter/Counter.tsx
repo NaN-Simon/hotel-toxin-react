@@ -6,15 +6,15 @@ interface ICounter {
   id: number;
   title: string;
   value: number;
-  onCountChange: (id: number, count: number) => void;
+  onChange: (id: number, count: number) => void;
 }
 
 const MIN = 0;
 const MAX = 99;
 
-const Counter = ({ id, title, value, onCountChange }: ICounter) => {
+const Counter = ({ id, title, value, onChange }: ICounter) => {
   const [count, setCount] = useState(value);
-  useEffect(() => onCountChange(id, count), [count]);
+  useEffect(() => onChange(id, count), [count]);
 
   const classesDecrement = classNames(
     styles['counter__btn'],

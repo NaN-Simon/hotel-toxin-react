@@ -22,8 +22,8 @@ export default function FormAndElements() {
       </header>
       <main className={styles['form-elements__main']}>
         <div className={styles['form-elements__container']}>
-          <div className={styles['form-elements__text-fields-buttons']}>
-            
+
+          {/* <div className={styles['form-elements__text-fields-buttons']}>
             <div className={styles['form-elements__text-fields']}>
               <div className={styles['form-elements__large-wrapper']}>
                 <Heading type="h3" title="TEXT FIELD" description="DEFAULT" />
@@ -56,13 +56,17 @@ export default function FormAndElements() {
               <div className={styles['form-elements__large-wrapper']}>
                 <Heading type="h3" title="Date dropdown" />
                 <div className={styles['form-elements__datepicker-container']}>
-                <DatePickerCustom name='datePicker1' mask="99.99.9999"/>
-                <DatePickerCustom name='datePicker2' mask="99.99.9999"/>
+                  <DatePickerCustom name="datePicker1" mask="99.99.9999" />
+                  <DatePickerCustom name="datePicker2" mask="99.99.9999" />
                 </div>
               </div>
               <div className={styles['form-elements__large-wrapper']}>
                 <Heading type="h3" title="Filter date dropdown" />
-                <DatePickerCustom name='datePicker3' mask="99.99.9999 - 99.99.9999" selectsRange/>
+                <DatePickerCustom
+                  name="datePicker3"
+                  mask="99.99.9999 - 99.99.9999"
+                  selectsRange
+                />
               </div>
               <div className={styles['form-elements__large-wrapper']}>
                 <Heading type="h3" title="SUBSCRIPTION TEXT FIELD" />
@@ -93,8 +97,8 @@ export default function FormAndElements() {
               <div className={styles['form-elements__large-wrapper']}>
                 <Heading type="h3" title="rate button" />
                 <div className={styles['form-elements__rate-button-container']}>
-                  <RateButton id={1} maxrate={5} rate={4}/>
-                  <RateButton id={2} maxrate={5} rate={5}/>
+                  <RateButton id={1} maxrate={5} rate={4} />
+                  <RateButton id={2} maxrate={5} rate={5} />
                 </div>
               </div>
             </div>
@@ -139,10 +143,20 @@ export default function FormAndElements() {
               </div>
               <div className={styles['form-elements__large-wrapper']}>
                 <Heading type="h3" title="PAGINATION" />
-                <Paginate itemCounts={180} itemsPerPage={8}/>
+                <Paginate itemCounts={180} itemsPerPage={8} />
               </div>
             </div>
+          </div> */}
 
+          <div className={styles['form-elements__dropdowns']}>
+            <div className={styles['form-elements__large-wrapper']}>
+              <Heading type="h3" title="Dropdown" />
+              <Dropdown preset='room' />
+            </div>
+            <div className={styles['form-elements__large-wrapper']}>
+              <Heading type="h3" title="Dropdown" />
+              <Dropdown isOpened preset='room' />
+            </div>
           </div>
         </div>
       </main>
