@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Counter from '../Counter/Counter';
 import styles from './Dropdown.module.scss';
 import classNames from 'classnames';
+import Button from '../Button/Button';
 
 const pluralGuests = ['гость', 'гостя', 'гостей'];
 const pluralBedroom = ['спальня', 'спальни', 'спален'];
@@ -14,9 +15,9 @@ const dataGuests = [
 ];
 
 const dataRoom = [
-  { id: 1, title: 'Спальни', name: 'bedroom', value: 0 },
-  { id: 2, title: 'Кровати', name: 'bed', value: 1 },
-  { id: 3, title: 'Ванные комнаты', name: 'bathroom', value: 2 },
+  { id: 1, title: 'Спальни', name: 'bedroom', value: 2 },
+  { id: 2, title: 'Кровати', name: 'bed', value: 2 },
+  { id: 3, title: 'Ванные комнаты', name: 'bathroom', value: 5 },
   { id: 4, title: 'Балконы', name: 'balcony', value: 1 },
 ];
 
@@ -30,9 +31,10 @@ interface IDropdownData {
 interface IDropdown {
   isOpened?: boolean;
   preset?: string;
+  hasBtn? : boolean
 }
 
-const Dropdown = ({ isOpened, preset }: IDropdown) => {
+const Dropdown = ({ isOpened, preset, hasBtn }: IDropdown) => {
   const dataPreset = preset === 'room' ? dataRoom : dataGuests;
   const valueSum = () => dataPreset.reduce((sum, cur) => sum + cur.value, 0);
 
@@ -50,6 +52,10 @@ const Dropdown = ({ isOpened, preset }: IDropdown) => {
   const classesDropdownDrop = classNames(
     styles['dropdown__drop'],
     opened && styles['dropdown__open']
+  );
+  const classesBtnContainer = classNames(
+    styles['dropdown__btn-container'],
+    hasBtn && styles['dropdown__btn-container--has-btn']
   );
 
   const updateDropdown = (id: number, count: number) => {
@@ -128,6 +134,10 @@ const Dropdown = ({ isOpened, preset }: IDropdown) => {
             />
           );
         })}
+      <div className={classesBtnContainer}>
+        <Button type='link'>применить</Button>
+        <Button type='link'>очистить</Button>
+      </div>
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './FormAndElements.module.scss';
+import classNames from 'classnames';
 import CheckboxList from '../../components/CheckboxList/CheckboxList';
 import Dropdown from '../../components/Dropdown/Dropdown';
 import Heading from '../../components/Heading/Heading';
@@ -15,6 +16,11 @@ import Paginate from '../../components/Paginate/Paginate';
 import RateButton from '../../components/RateButton/RateButton';
 
 export default function FormAndElements() {
+  const classesDropdown = classNames(
+    styles['form-elements__large-wrapper'],
+    styles['form-elements--raiseIndex']
+  );
+
   return (
     <div className={styles['color-and-types']}>
       <header className={styles['form-elements__header']}>
@@ -22,8 +28,7 @@ export default function FormAndElements() {
       </header>
       <main className={styles['form-elements__main']}>
         <div className={styles['form-elements__container']}>
-
-          {/* <div className={styles['form-elements__text-fields-buttons']}>
+          <div className={styles['form-elements__text-fields-buttons']}>
             <div className={styles['form-elements__text-fields']}>
               <div className={styles['form-elements__large-wrapper']}>
                 <Heading type="h3" title="TEXT FIELD" description="DEFAULT" />
@@ -146,16 +151,16 @@ export default function FormAndElements() {
                 <Paginate itemCounts={180} itemsPerPage={8} />
               </div>
             </div>
-          </div> */}
+          </div>
 
           <div className={styles['form-elements__dropdowns']}>
-            <div className={styles['form-elements__large-wrapper']}>
+            <div className={classesDropdown}>
               <Heading type="h3" title="Dropdown" />
-              <Dropdown preset='room' />
+              <Dropdown preset="room" hasBtn />
             </div>
             <div className={styles['form-elements__large-wrapper']}>
               <Heading type="h3" title="Dropdown" />
-              <Dropdown isOpened preset='room' />
+              <Dropdown isOpened preset="room" hasBtn />
             </div>
           </div>
         </div>
