@@ -54,6 +54,23 @@
     min-width: 320px;
     max-width: 320px;
     margin-bottom: 18px;
+
+    &--indexUp1{
+      position: relative;
+      z-index: 9;
+    }
+    &--indexUp2{
+      position: relative;
+      z-index: 8;
+    }
+    &--indexUp3{
+      position: relative;
+      z-index: 7;
+    }
+    &--indexUp4{
+      position: relative;
+      z-index: 6;
+    }
   }
 
   &__like-button-container{
@@ -100,9 +117,20 @@
     }
   }
 
-  &--raiseIndex{
-    position: relative;
-    z-index: 1000;
+  &__dropdowns{
+    display: flex;
+
+    &-room{
+      width: auto;
+    }
+
+    &-guests-clear{
+      padding-left: 55px;
+    }
+
+    &-guests{
+      padding-left: 55px;
+    }
   }
 }
 
@@ -122,6 +150,18 @@
 
     &__buttons{
       padding-left: 0;
+    }
+
+    &__dropdowns{
+      flex-direction: column;
+
+      &-guests-clear{
+        padding-left: 0;
+      }
+
+      &-guests{
+        padding-left: 0;
+      }
     }
 
   }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import Counter from '../Counter/Counter';
 import styles from './Dropdown.module.scss';
 import classNames from 'classnames';
@@ -9,9 +9,9 @@ const pluralBedroom = ['спальня', 'спальни', 'спален'];
 const pluralBed = ['кровать', 'кровати', 'кроватей'];
 
 const dataGuests = [
-  { id: 1, title: 'Взрослые', name: 'adult', value: 0 },
+  { id: 1, title: 'Взрослые', name: 'adult', value: 2 },
   { id: 2, title: 'Дети', name: 'child', value: 1 },
-  { id: 3, title: 'Младенцы', name: 'baby', value: 2 },
+  { id: 3, title: 'Младенцы', name: 'baby', value: 0 },
 ];
 
 const dataRoom = [
@@ -31,10 +31,10 @@ interface IDropdownData {
 interface IDropdown {
   isOpened?: boolean;
   preset?: string;
-  hasBtn? : boolean
+  hasBtn?: boolean;
 }
 
-const Dropdown = ({ isOpened, preset, hasBtn }: IDropdown) => {
+const Dropdown: FC<IDropdown> = ({ isOpened, preset, hasBtn }) => {
   const dataPreset = preset === 'room' ? dataRoom : dataGuests;
   const valueSum = () => dataPreset.reduce((sum, cur) => sum + cur.value, 0);
 
@@ -57,13 +57,21 @@ const Dropdown = ({ isOpened, preset, hasBtn }: IDropdown) => {
     styles['dropdown__btn-container'],
     hasBtn && styles['dropdown__btn-container--has-btn']
   );
-
   const updateDropdown = (id: number, count: number) => {
     setDataDropdown(
       dataDropdown.map((counterItem) => {
         if (counterItem.id === id) {
           counterItem.value = count;
         }
+        return counterItem;
+      })
+    );
+  };
+
+  const clearValue = () => {
+    setDataDropdown(
+      dataDropdown.map((counterItem) => {
+        counterItem.value = 0;
         return counterItem;
       })
     );
@@ -82,23 +90,18 @@ const Dropdown = ({ isOpened, preset, hasBtn }: IDropdown) => {
   };
 
   const placeholderGuests = () => {
-    const placeholder =
-      valueSum() === 0
-        ? 'Сколько гостей'
-        : valueSum().toString() +
-          getPlural(valueSum(), pluralGuests);
-    return placeholder;
+    return valueSum() === 0
+      ? 'Сколько гостей'
+      : valueSum().toString() + getPlural(valueSum(), pluralGuests);
   };
 
   const placeholderRooms = () => {
     let result = `${dataRoom[0].value} ${getPlural(
       dataRoom[0].value,
       pluralBedroom
-    )}, ${dataRoom[1].value} ${getPlural(
-      dataRoom[1].value,
-      pluralBed)}...`;
+    )}, ${dataRoom[1].value} ${getPlural(dataRoom[1].value, pluralBed)}...`;
 
-    return result;
+    return dataRoom[0].value !== 0 ? result : 'Сколько гостей';
   };
 
   return (
@@ -134,10 +137,16 @@ const Dropdown = ({ isOpened, preset, hasBtn }: IDropdown) => {
             />
           );
         })}
-      <div className={classesBtnContainer}>
-        <Button type='link'>применить</Button>
-        <Button type='link'>очистить</Button>
-      </div>
+        <div className={classesBtnContainer}>
+          {dataPreset[0].value === 0 ? (
+            <div></div>
+          ) : (
+            <Button type="link" onClick={clearValue}>
+              очистить
+            </Button>
+          )}
+          <Button type="link">применить</Button>
+        </div>
       </div>
     </div>
   );

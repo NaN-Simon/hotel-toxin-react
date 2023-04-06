@@ -14,7 +14,9 @@ const MAX = 99;
 
 const Counter = ({ id, title, value, onChange }: ICounter) => {
   const [count, setCount] = useState(value);
+
   useEffect(() => onChange(id, count), [count]);
+  useEffect(() => reset(), [value]);
 
   const classesDecrement = classNames(
     styles['counter__btn'],
@@ -35,6 +37,10 @@ const Counter = ({ id, title, value, onChange }: ICounter) => {
     if (count > MIN) {
       setCount((count) => count - 1);
     }
+  }
+
+  function reset() {
+    setCount((count) => (count = value));
   }
 
   return (

@@ -127,6 +127,9 @@
   border: none;
   box-shadow: 0 0 25px rgb(0 0 0 / 20%);
 
+  &-popper{
+    z-index: 100;
+  }
   &-wrapper{
     border-radius: inherit;
   }
@@ -142,7 +145,7 @@
 
   &__month{
     margin: 0 0.4rem;
-    
+
     &-container{
       width: 100%;
     }

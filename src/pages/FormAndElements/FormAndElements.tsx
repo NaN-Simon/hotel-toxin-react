@@ -16,9 +16,21 @@ import Paginate from '../../components/Paginate/Paginate';
 import RateButton from '../../components/RateButton/RateButton';
 
 export default function FormAndElements() {
-  const classesDropdown = classNames(
+  const classesDropdown1 = classNames(
     styles['form-elements__large-wrapper'],
-    styles['form-elements--raiseIndex']
+    styles['form-elements__large-wrapper--indexUp1']
+  );
+  const classesDropdown2 = classNames(
+    styles['form-elements__large-wrapper'],
+    styles['form-elements__large-wrapper--indexUp2']
+  );
+  const classesDropdown3 = classNames(
+    styles['form-elements__large-wrapper'],
+    styles['form-elements__large-wrapper--indexUp3']
+  );
+  const classesDropdown4 = classNames(
+    styles['form-elements__large-wrapper'],
+    styles['form-elements__large-wrapper--indexUp4']
   );
 
   return (
@@ -154,13 +166,31 @@ export default function FormAndElements() {
           </div>
 
           <div className={styles['form-elements__dropdowns']}>
-            <div className={classesDropdown}>
-              <Heading type="h3" title="Dropdown" />
-              <Dropdown preset="room" hasBtn />
+            <div className={styles['form-elements__dropdowns-room']}>
+              <div className={classesDropdown1}>
+                <Heading type="h3" title="Dropdown" description="DEFAULT" />
+                <Dropdown preset="room" hasBtn />
+              </div>
+              <div className={classesDropdown2}>
+                <Heading type="h3" title="Dropdown" description="EXPANDED" />
+                <Dropdown isOpened preset="room" hasBtn />
+              </div>
             </div>
-            <div className={styles['form-elements__large-wrapper']}>
-              <Heading type="h3" title="Dropdown" />
-              <Dropdown isOpened preset="room" hasBtn />
+            <div className={styles['form-elements__dropdowns-guests-clear']}>
+              <div className={classesDropdown3}>
+                <div className={styles['form-elements__large-wrapper']}>
+                  <Heading type="h3" title="Dropdown" />
+                  <Dropdown isOpened preset="guests" hasBtn />
+                </div>
+              </div>
+            </div>
+            <div className={styles['form-elements__dropdowns-guests']}>
+              <div className={classesDropdown4}>
+                <div className={styles['form-elements__large-wrapper']}>
+                  <Heading type="h3" title="Dropdown" />
+                  <Dropdown preset="guests" hasBtn />
+                </div>
+              </div>
             </div>
           </div>
         </div>
