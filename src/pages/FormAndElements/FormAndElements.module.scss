@@ -59,17 +59,14 @@
       position: relative;
       z-index: 9;
     }
-
     &--indexUp2{
       position: relative;
       z-index: 8;
     }
-
     &--indexUp3{
       position: relative;
       z-index: 7;
     }
-
     &--indexUp4{
       position: relative;
       z-index: 6;
@@ -136,6 +133,25 @@
       padding-left: 55px;
     }
   }
+
+  &__lists{
+    display: flex;
+    flex-direction: row;
+
+    &-expandable-checkbox-list{
+      &-container{
+        width: auto;
+      }
+    }
+
+    &-rich-list{
+      padding-left: 55px;
+    }
+
+    &-bullet-list{
+      padding-left: 55px;
+    }
+  }
 }
 
 @media (max-width: 1080px){
@@ -173,6 +189,5 @@
         height: 150px;
       }
     }
-
   }
 }
