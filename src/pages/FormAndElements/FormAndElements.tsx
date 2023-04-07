@@ -14,6 +14,7 @@ import RangeSlider from '../../components/RangeSlider/RangeSlider';
 import Button from '../../components/Button/Button';
 import Paginate from '../../components/Paginate/Paginate';
 import RateButton from '../../components/RateButton/RateButton';
+import BulletList from '../../components/BulletList/BulletList';
 
 export default function FormAndElements() {
   const classesDropdown1 = classNames(
@@ -229,7 +230,12 @@ export default function FormAndElements() {
               </div>
             </div>
 
-            <div className={styles['form-elements__lists-bullet-list']}></div>
+            <div className={styles['form-elements__lists-bullet-list']}>
+              <div className={styles['form-elements__large-wrapper']}>
+                <Heading type="h3" title="BULLET LIST" />
+                <BulletList />
+              </div>
+            </div>
           </div>
         </div>
       </main>

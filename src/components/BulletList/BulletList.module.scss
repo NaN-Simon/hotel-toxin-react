@@ -1,0 +1,27 @@
+@import '../../styles/base.scss';
+@import '../../styles/mixins.scss';
+
+.bullet-list {
+  display: flex;
+  flex-direction: column;
+
+  &__title {
+    list-style-type: none;
+    position: relative;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    color: $textColor_75;
+    @include font-body;
+
+    &::before {
+      position: absolute;
+      top: 7px;
+      left: 0;
+      width: 10px;
+      height: 10px;
+      background: $textColor_25;
+      border-radius: 50%;
+      content: "";
+    }
+  }
+}
