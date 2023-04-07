@@ -59,17 +59,21 @@
       position: relative;
       z-index: 9;
     }
+
     &--indexUp2{
       position: relative;
       z-index: 8;
     }
+
     &--indexUp3{
       position: relative;
       z-index: 7;
     }
+
     &--indexUp4{
       position: relative;
       z-index: 6;
+      height: 360px;
     }
   }
 
@@ -161,6 +165,12 @@
 
       &-guests{
         padding-left: 0;
+      }
+    }
+
+    &__large-wrapper{
+      &--indexUp4{
+        height: 150px;
       }
     }
 

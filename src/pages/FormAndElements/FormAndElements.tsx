@@ -193,6 +193,42 @@ export default function FormAndElements() {
               </div>
             </div>
           </div>
+
+          <div className={styles['form-elements__lists']}>
+            <div
+              className={
+                styles[
+                  'form-elements__lists-expandable-checkbox-list-container'
+                ]
+              }
+            >
+              <div
+                className={
+                  styles['form-elements__lists-expandable-checkbox-list']
+                }
+              >
+                <div className={styles['form-elements__large-wrapper']}>
+                  <Heading type="h3" title="expandable checkbox list" />
+                  <CheckboxList
+                    preset="ExtraComfort"
+                    dropWrapper
+                    isOpened={false}
+                  />
+                </div>
+                <div className={styles['form-elements__large-wrapper']}>
+                  <Heading type="h3" title="expandable checkbox list" />
+                  <CheckboxList preset="ExtraComfort" dropWrapper isOpened />
+                </div>
+              </div>
+              <div
+                className={
+                  styles['form-elements__lists-expandable-checkbox-list']
+                }
+              ></div>
+            </div>
+            <div className={styles['form-elements__lists-rich-list']}></div>
+            <div className={styles['form-elements__lists-bullet-list']}></div>
+          </div>
         </div>
       </main>
     </div>
