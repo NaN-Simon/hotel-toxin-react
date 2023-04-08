@@ -3,7 +3,7 @@ import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import './RangeSlider.scss';
 
-interface IRangeSlider {
+type IRangeSlider = {
   min: number;
   max: number;
   count?: number;
@@ -11,7 +11,7 @@ interface IRangeSlider {
   startValue: number | number[];
   range?: boolean;
   vertical?: boolean;
-}
+};
 
 const RangeSlider = ({
   min,

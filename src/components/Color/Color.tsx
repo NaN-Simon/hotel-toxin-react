@@ -1,16 +1,16 @@
 import React from 'react';
 import styles from './Color.module.scss';
 
-interface IColorProps {
+type IColor = {
   id: number;
   color: string;
   title: string;
   hexName: string;
 }
 
-const Color = ({ id, color, title, hexName }: IColorProps) => {
+const Color = ({ id, color, title, hexName }: IColor) => {
   return (
-    <div className={styles['color__item']}>
+    <div id={id.toString()} className={styles['color__item']}>
       <div
         style={{ backgroundColor: color }}
         className={styles['color__box']}

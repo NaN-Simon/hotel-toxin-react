@@ -1,22 +1,22 @@
 import React from 'react';
-import classes from './Types.module.scss';
 import classNames from 'classnames';
+import classes from './Types.module.scss';
 
-interface ITypesProps {
+type ITypes = {
   id: string;
   type: string;
   tag: string;
   description: string;
-}
+};
 
-interface IType {
-  typeProps: ITypesProps[];
-}
+type ITypeArray = {
+  typeProps: ITypes[];
+};
 
-const Types = ({ typeProps }: IType) => {
+const Types = ({ typeProps }: ITypeArray) => {
   return (
     <ul className={classes['type']}>
-      {typeProps.map((colorElement: ITypesProps) => {
+      {typeProps.map((colorElement: ITypes) => {
         return (
           <li className={classes['type__item']} key={colorElement.id}>
             <div

@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './BulletList.module.scss';
+
 const dataProhibited = [
   { id: 1, title: 'Нельзя с питомцами', name: 'pets' },
   { id: 2, title: 'Без вечеринок и мероприятий', name: 'party' },
@@ -18,7 +19,7 @@ interface IBulletList {
   checked?: boolean;
 }
 
-export default function BulletList() {
+const BulletList = () => {
   return (
     <ul className={styles['bullet-list']}>
       {dataProhibited.map((item: IBulletList) => {
@@ -30,4 +31,6 @@ export default function BulletList() {
       })}
     </ul>
   );
-}
+};
+
+export default BulletList;

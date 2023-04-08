@@ -1,12 +1,12 @@
 import React from 'react';
-import styles from './RateButton.module.scss';
 import classNames from 'classnames';
+import styles from './RateButton.module.scss';
 
-interface IRateButton {
+type IRateButton = {
   id: number;
   maxrate: number;
   rate: number;
-}
+};
 
 const classesRateButton = classNames(
   'material-icons',

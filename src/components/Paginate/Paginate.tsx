@@ -1,18 +1,17 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import './Paginate.scss';
 
 type SelectedItem = { selected: number };
-type ItemsPerPage = { itemsPerPage: number, itemCounts: number };
+type ItemsPerPage = { itemsPerPage: number; itemCounts: number };
 type CurrentItems = { currentItems: number[] };
-
 
 function Items({ currentItems }: CurrentItems) {
   return (
-    <ul className='paginate__list'>
+    <ul className="paginate__list">
       {currentItems &&
         currentItems.map((item: number) => (
-          <div className='paginate__item' key={item}>
+          <div className="paginate__item" key={item}>
             {item}
           </div>
         ))}
@@ -21,19 +20,20 @@ function Items({ currentItems }: CurrentItems) {
 }
 
 const Paginate = ({ itemsPerPage, itemCounts }: ItemsPerPage) => {
-  const maxDisplayCounts = 100
-  const moreThanCount = itemCounts > maxDisplayCounts ? `${maxDisplayCounts}+` : itemCounts
-  const items: number[] = []
+  const maxDisplayCounts = 100;
+  const moreThanCount =
+    itemCounts > maxDisplayCounts ? `${maxDisplayCounts}+` : itemCounts;
+  const items: number[] = [];
 
-  for(let i = 1; i <= itemCounts;i++){
-    items.push(i)
+  for (let i = 1; i <= itemCounts; i++) {
+    items.push(i);
   }
 
   const [itemOffset, setItemOffset] = useState(0);
 
   let endOffset = itemOffset + itemsPerPage;
-  endOffset > itemCounts ? endOffset = itemCounts : false
-  
+  endOffset > itemCounts ? (endOffset = itemCounts) : false;
+
   const currentItems = items.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(items.length / itemsPerPage);
 
@@ -53,16 +53,18 @@ const Paginate = ({ itemsPerPage, itemCounts }: ItemsPerPage) => {
         marginPagesDisplayed={2}
         pageCount={pageCount}
         previousLabel=""
-        containerClassName='navigate__container'
-        pageClassName='navigate__page'
-        breakClassName='navigate__break'
-        previousClassName='navigate__previous'
-        nextClassName='navigate__next'
-        nextLinkClassName='material-icons'
+        containerClassName="navigate__container"
+        pageClassName="navigate__page"
+        breakClassName="navigate__break"
+        previousClassName="navigate__previous"
+        nextClassName="navigate__next"
+        nextLinkClassName="material-icons"
       />
-      <div>{`${itemOffset + 1} - ${endOffset} из ${moreThanCount} вариантов аренды`}</div>
+      <div>{`${
+        itemOffset + 1
+      } - ${endOffset} из ${moreThanCount} вариантов аренды`}</div>
     </>
   );
-}
+};
 
-export default Paginate
+export default Paginate;

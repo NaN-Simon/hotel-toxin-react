@@ -1,6 +1,6 @@
 import React from 'react';
-import styles from './Checkbox.module.scss';
 import classNames from 'classnames';
+import styles from './Checkbox.module.scss';
 
 interface ICheckbox {
   id: number;

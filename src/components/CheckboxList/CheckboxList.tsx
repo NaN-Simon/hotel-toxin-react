@@ -1,7 +1,7 @@
-import React, { FC, useState, useCallback } from 'react';
-import styles from './CheckboxList.module.scss';
+import React, { useState, useCallback } from 'react';
 import Checkbox from '../Checkbox/Checkbox';
 import classNames from 'classnames';
+import styles from './CheckboxList.module.scss';
 
 const dataAllowList = [
   { id: 1, title: 'Можно курить', name: 'smoke-allow' },
@@ -40,7 +40,6 @@ const dataNeededsList = [
 
 interface ICheckboxList {
   preset?: string;
-  isRichType?: boolean;
   dropWrapper?: boolean;
   isOpened?: boolean;
 }
@@ -53,12 +52,11 @@ interface IDataCheckboxList {
   checked?: boolean;
 }
 
-const CheckboxList: FC<ICheckboxList> = ({
+const CheckboxList = ({
   preset,
-  isRichType,
   dropWrapper,
   isOpened = true,
-}) => {
+}: ICheckboxList) => {
   let dataPreset = [];
   switch (preset) {
     case 'allowList':

@@ -1,20 +1,19 @@
-import React, { forwardRef, useState, LegacyRef } from 'react';
-import styles from './TextFieldMask.module.scss';
+import React, { forwardRef, LegacyRef } from 'react';
 import InputMask, { ReactInputMask } from 'react-input-mask';
 import classNames from 'classnames';
+import styles from './TextFieldMask.module.scss';
 
-interface ITextFieldMask {
+type ITextFieldMask = {
   mask: string;
   placeholder?: string;
   name: string;
   customclassname?: string;
   customclassnamewrapper?: string;
   focused?: boolean;
-}
+};
 
 const TextFieldMask = forwardRef(
   (props: ITextFieldMask, ref: LegacyRef<ReactInputMask> | undefined) => {
-    
     const classesTextField = classNames(
       styles['text-field__input'],
       props.focused && styles['text-field__input--focused']

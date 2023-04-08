@@ -1,24 +1,19 @@
 import React from 'react';
-import styles from './TextField.module.scss';
 import classNames from 'classnames';
+import styles from './TextField.module.scss';
 
-interface ITextField {
+type ITextField = {
   placeholder: string;
   name: string;
   arrow?: boolean;
   focused?: boolean;
-}
+};
 
-
-export default function TextField({
-  placeholder,
-  name,
-  arrow,
-  focused,
-}: ITextField) {
+const TextField = ({ placeholder, name, arrow, focused }: ITextField) => {
   const classesArrow = classNames(
-    'material-icons', 
-    styles['text-field__arrow']);
+    'material-icons',
+    styles['text-field__arrow']
+  );
   const classesTextField = classNames(
     styles['text-field__input'],
     focused && styles['text-field__input--focused'],
@@ -34,11 +29,13 @@ export default function TextField({
       {arrow && <span></span>}
       <input
         className={classesTextField}
-        type='text'
+        type="text"
         placeholder={placeholder}
         name={name}
       />
       {arrow && hasArrow()}
     </div>
   );
-}
+};
+
+export default TextField;

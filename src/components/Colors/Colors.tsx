@@ -2,18 +2,18 @@ import React from 'react';
 import Color from '../Color/Color';
 import styles from './Colors.module.scss';
 
-interface IColorProps {
+interface IColors {
   id: number;
   color: string;
   title: string;
   hexName: string;
 }
 
-interface IColor {
-  colorProps: IColorProps[];
+interface IColorArray {
+  colorProps: IColors[];
 }
 
-const Colors = ({ colorProps }: IColor) => {
+const Colors = ({ colorProps }: IColorArray) => {
   return (
     <div className={styles['colors']}>
       {colorProps.map((item) => {

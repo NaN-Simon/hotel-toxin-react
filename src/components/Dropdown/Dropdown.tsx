@@ -21,20 +21,20 @@ const dataRoom = [
   { id: 4, title: 'Балконы', name: 'balcony', value: 1 },
 ];
 
-interface IDropdownData {
+type IDropdownData = {
   id: number;
   title: string;
   name: string;
   value: number;
 }
 
-interface IDropdown {
+type IDropdown = {
   isOpened?: boolean;
   preset?: string;
   hasBtn?: boolean;
 }
 
-const Dropdown: FC<IDropdown> = ({ isOpened, preset, hasBtn }) => {
+const Dropdown = ({ isOpened, preset, hasBtn }: IDropdown) => {
   const dataPreset = preset === 'room' ? dataRoom : dataGuests;
   const valueSum = () => dataPreset.reduce((sum, cur) => sum + cur.value, 0);
 
@@ -57,7 +57,7 @@ const Dropdown: FC<IDropdown> = ({ isOpened, preset, hasBtn }) => {
     styles['dropdown__btn-container'],
     hasBtn && styles['dropdown__btn-container--has-btn']
   );
-  const updateDropdown = (id: number, count: number) => {
+  const update = (id: number, count: number) => {
     setDataDropdown(
       dataDropdown.map((counterItem) => {
         if (counterItem.id === id) {
@@ -133,7 +133,7 @@ const Dropdown: FC<IDropdown> = ({ isOpened, preset, hasBtn }) => {
               id={item.id}
               title={item.title}
               value={item.value}
-              onChange={updateDropdown}
+              onChange={update}
             />
           );
         })}
@@ -145,7 +145,14 @@ const Dropdown: FC<IDropdown> = ({ isOpened, preset, hasBtn }) => {
               очистить
             </Button>
           )}
-          <Button type="link">применить</Button>
+          <Button
+            type="link"
+            onClick={() => {
+              console.log('accepted');
+            }}
+          >
+            применить
+          </Button>
         </div>
       </div>
     </div>

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import styles from './Counter.module.scss';
 import classNames from 'classnames';
+import styles from './Counter.module.scss';
 
-interface ICounter {
+type ICounter = {
   id: number;
   title: string;
   value: number;

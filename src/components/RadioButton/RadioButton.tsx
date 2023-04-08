@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import styles from './RadioButton.module.scss';
 import classNames from 'classnames';
+import styles from './RadioButton.module.scss';
 
 const dataRadioButton = {
   name: 'gender',
@@ -11,17 +11,17 @@ const dataRadioButton = {
   ],
 };
 
-interface IlistItems {
+type IlistItems = {
   value: string;
   id: string;
   checked?: boolean;
-}
+};
 
-interface IRadioButton {
+type IRadioButton = {
   name: string;
   inline: boolean;
   listItems: IlistItems[];
-}
+};
 
 const RadioButton = () => {
   const [dataCheckboxButton, setDataCheckboxButton] =

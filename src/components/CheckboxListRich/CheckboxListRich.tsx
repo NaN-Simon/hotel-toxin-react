@@ -1,7 +1,7 @@
-import React, {FC, useState, useCallback} from 'react';
+import React, {useState, useCallback} from 'react';
+import classNames from 'classnames';
 import styles from './CheckboxList.module.scss';
 import Checkbox from '../Checkbox/Checkbox';
-import classNames from 'classnames';
 
 const dataCheckboxList = [
   { id: 1, title: "Можно курить", name: 'smoke-allow'},
@@ -10,12 +10,12 @@ const dataCheckboxList = [
 ]
 
 const dataExtraComfort = [
-  { id: 1, title: "Завтрак", name: 'breakfast'},
-  { id: 2, title: "Письменный стол", name: 'desk'},
-  { id: 3, title: "Стул для кормления", name: 'child-chair', checked: true },
-  { id: 4, title: "Кроватка", name: 'child-bed', checked: false },
-  { id: 5, title: "Телевизор", name: 'tv', checked: true },
-  { id: 6, title: "Шампунь", name: 'shampoo', checked: true }
+  { id: 4, title: "Завтрак", name: 'breakfast'},
+  { id: 5, title: "Письменный стол", name: 'desk'},
+  { id: 6, title: "Стул для кормления", name: 'child-chair', checked: true },
+  { id: 7, title: "Кроватка", name: 'child-bed', checked: false },
+  { id: 8, title: "Телевизор", name: 'tv', checked: true },
+  { id: 9, title: "Шампунь", name: 'shampoo', checked: true }
 ]
 
 interface ICheckboxList {
@@ -31,11 +31,11 @@ interface IDataCheckboxList {
   checked?: boolean;
 }
 
-const CheckboxListRich:FC<ICheckboxList> = ({preset, dropWrapper, isOpened = true}) => {
+const CheckboxListRich = ({preset, dropWrapper, isOpened = true}: ICheckboxList) => {
   const dataPreset = preset === 'allowList' ? dataCheckboxList : dataExtraComfort;
   const [checkboxList, setCheckboxList] = useState<IDataCheckboxList[]>(dataPreset);
   const [opened, setOpened] = useState(isOpened);
-  
+
   const classesCheckboxForm = classNames(
     styles['checkboxList__form'],
     opened && styles['checkboxList__form--open']
@@ -43,7 +43,7 @@ const CheckboxListRich:FC<ICheckboxList> = ({preset, dropWrapper, isOpened = tru
   const classesCheckboxBtn = classNames(
     'material-icons',
     styles['checkboxList__btn'],
-    
+
   );
 
   const onChange = useCallback((id: number, checked: boolean) => {

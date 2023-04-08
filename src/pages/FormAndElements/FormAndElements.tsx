@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './FormAndElements.module.scss';
 import classNames from 'classnames';
 import CheckboxList from '../../components/CheckboxList/CheckboxList';
 import Dropdown from '../../components/Dropdown/Dropdown';
@@ -15,6 +14,7 @@ import Button from '../../components/Button/Button';
 import Paginate from '../../components/Paginate/Paginate';
 import RateButton from '../../components/RateButton/RateButton';
 import BulletList from '../../components/BulletList/BulletList';
+import styles from './FormAndElements.module.scss';
 
 export default function FormAndElements() {
   const classesDropdown1 = classNames(
@@ -226,7 +226,7 @@ export default function FormAndElements() {
             <div className={styles['form-elements__lists-rich-list']}>
               <div className={styles['form-elements__large-wrapper']}>
                 <Heading type="h3" title="RICH CHECKBOX BUTTONS" />
-                <CheckboxList preset="neededs" isRichType />
+                <CheckboxList preset="neededs" />
               </div>
             </div>
 

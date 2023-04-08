@@ -3,7 +3,7 @@ import Colors from '../../components/Colors/Colors';
 import Types from '../../components/Types/Types';
 import styles from './ColorAndTypes.module.scss';
 
-const colorDataArr = [
+const dataColors = [
   {
     id: 0,
     color: '#1f2041',
@@ -47,7 +47,7 @@ const colorDataArr = [
     hexName: '#6FCF97',
   },
 ];
-const typeDataArr = [
+const dataTypes = [
   {
     id: '1',
     type: 'h1',
@@ -76,7 +76,6 @@ const typeDataArr = [
 ];
 
 const ColorAndTypes = () => {
-
   return (
     <div className={styles['color-and-types']}>
       <header className={styles['color-and-types__header']}>
@@ -84,8 +83,8 @@ const ColorAndTypes = () => {
       </header>
       <main className={styles['color-and-types__main']}>
         <div className={styles['color-and-types__container']}>
-          <Colors colorProps={colorDataArr} />
-          <Types typeProps={typeDataArr} />
+          <Colors colorProps={dataColors} />
+          <Types typeProps={dataTypes} />
         </div>
       </main>
     </div>

@@ -1,5 +1,5 @@
-import classNames from 'classnames';
 import React from 'react';
+import classNames from 'classnames';
 import styles from './Button.module.scss';
 
 interface IButton {
@@ -11,11 +11,11 @@ interface IButton {
 }
 const Button = ({ type, arrow, disable, onClick, children }: IButton) => {
   const classesButton = classNames(
+    arrow && 'material-icons',
     styles['button'],
     type === 'colored' && styles['button__colored'],
     type === 'tranparent' && styles['button__colored__transparent'],
     type === 'link' && styles['button__link'],
-    arrow && 'material-icons',
     disable && styles['button--disable']
   );
   const classesArrow = classNames('material-icons', styles['button__arrow']);
