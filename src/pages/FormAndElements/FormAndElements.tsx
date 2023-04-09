@@ -17,6 +17,7 @@ import BulletList from '../../components/BulletList/BulletList';
 import styles from './FormAndElements.module.scss';
 import Dignity from '../../components/Dignity/Dignity';
 import DignityList from '../../components/DignityList/DignityList';
+import Review from '../../components/Review/Review';
 
 export default function FormAndElements() {
   const classesDropdown1 = classNames(
@@ -241,8 +242,15 @@ export default function FormAndElements() {
           </div>
 
           <div className={styles['form-elements__feedback']}>
-            <div className={styles['form-elements__large-wrapper']}>
-              <DignityList/>
+            <div className={styles['form-elements__feedback-dignity']}>
+              <div className={styles['form-elements__large-wrapper']}>
+                <DignityList />
+              </div>
+            </div>
+            <div className={styles['form-elements__feedback-review']}>
+              <div className={styles['form-elements__huge-wrapper']}>
+                <Review />
+              </div>
             </div>
           </div>
         </div>
