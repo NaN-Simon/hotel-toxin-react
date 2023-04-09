@@ -1,5 +1,7 @@
-.checkboxList__form{
-  display: flex;
-  flex-direction:column;
-  gap: 10px 0;
+.checkbox-list{
+  &__form{
+    display: flex;
+    flex-direction:column;
+    gap: 10px 0;
+  }
 }

@@ -1,10 +1,8 @@
 @import '../../styles/mixins.scss';
 
-
 .form-elements{
   &__main{
     display: flex;
-
   }
 
   &__header{
@@ -22,26 +20,26 @@
     margin: 0 auto;
   }
 
-  &__text-fields-buttons{
+  &__fields-buttons{
     display: flex;
     flex-direction: row;
-  }
 
-  &__text-fields{
-    display: flex;
-    flex-direction: column;
-  }
+    &-text-fields{
+      display: flex;
+      flex-direction: column;
+    }
 
-  &__checkboxes{
-    display: flex;
-    flex-direction: column;
-    padding-left: 55px;
-  }
+    &-checkboxes{
+      display: flex;
+      flex-direction: column;
+      padding-left: 55px;
+    }
 
-  &__buttons{
-    display: flex;
-    flex-direction: column;
-    padding-left: 55px;
+    &-buttons{
+      display: flex;
+      flex-direction: column;
+      padding-left: 55px;
+    }
   }
 
   &__big-wrapper{
@@ -177,20 +175,26 @@
 @media (max-width: 1080px){
   .form-elements{
     &__container{
-      flex-direction: column
+      flex-direction: column;
     }
 
-    &__text-fields-buttons{
-      flex-direction: column
+    &__fields-buttons{
+      flex-direction: column;
+
+      &-text-fields{
+        flex-direction: column;
+      }
+
+      &-checkboxes{
+        padding-left: 0;
+      }
+
+      &-buttons{
+        padding-left: 0;
+      }
+
     }
 
-    &__checkboxes{
-      padding-left: 0;
-    }
-
-    &__buttons{
-      padding-left: 0;
-    }
 
     &__dropdowns{
       flex-direction: column;

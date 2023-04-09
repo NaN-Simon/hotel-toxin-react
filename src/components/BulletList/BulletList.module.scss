@@ -6,11 +6,12 @@
   flex-direction: column;
 
   &__title {
-    list-style-type: none;
     position: relative;
     padding-bottom: 10px;
     padding-left: 20px;
     color: $textColor_75;
+    list-style-type: none;
+
     @include font-body;
 
     &::before {

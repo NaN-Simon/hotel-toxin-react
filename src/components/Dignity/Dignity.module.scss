@@ -9,7 +9,7 @@
   &__image {
     width: 40px;
     height: 47px;
-    color: #bc9cff;
+    color: $elementColor;
     font-size: 47px;
   }
 
@@ -20,6 +20,7 @@
 
     &-title {
       @include font-h3;
+
       color: $textColor;
     }
 

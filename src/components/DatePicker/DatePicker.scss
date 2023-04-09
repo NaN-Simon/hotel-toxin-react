@@ -2,13 +2,13 @@
 @import '../../styles/mixins.scss';
 
 .text-field{
-  @include text-field
-}
+  @include text-field;
 
-.text-field__input{
-  border-radius: inherit;
+  &__input{
+    border-radius: inherit;
 
-  @include text-field__input
+    @include text-field__input
+  }
 }
 
 .date-picker{
@@ -49,7 +49,6 @@
   &__hiden-months{
     display: none;
     list-style-type: none;
-
 
     &--open{
       position: absolute;
@@ -130,6 +129,7 @@
   &-popper{
     z-index: 100;
   }
+
   &-wrapper{
     border-radius: inherit;
   }
@@ -204,8 +204,6 @@
       border-radius: 50%;
     }
 
-
-
     &--in-selecting-range{
       background-color: $elementColor_50 !important;
     }
@@ -272,6 +270,7 @@
 
           @include datepicker-range-selector
       }
+      
       }
     }
   }

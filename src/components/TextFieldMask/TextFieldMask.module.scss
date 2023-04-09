@@ -1,9 +1,11 @@
 @import '../../styles/mixins.scss';
 
-.text-field__wrapper{
-  @include text-field
-}
-
-.text-field__input{
-  @include text-field__input
+.text-field{
+  &__wrapper{
+    @include text-field
+  }
+  
+  &__input{
+    @include text-field__input
+  }
 }

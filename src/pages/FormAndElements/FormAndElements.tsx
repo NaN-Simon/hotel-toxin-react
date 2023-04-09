@@ -44,8 +44,9 @@ export default function FormAndElements() {
       </header>
       <main className={styles['form-elements__main']}>
         <div className={styles['form-elements__container']}>
-          <div className={styles['form-elements__text-fields-buttons']}>
-            <div className={styles['form-elements__text-fields']}>
+
+          <div className={styles['form-elements__fields-buttons']}>
+            <div className={styles['form-elements__fields-buttons-text-fields']}>
               <div className={styles['form-elements__large-wrapper']}>
                 <Heading type="h3" title="TEXT FIELD" description="DEFAULT" />
                 <TextField placeholder="Email" name="email" />
@@ -95,7 +96,7 @@ export default function FormAndElements() {
               </div>
             </div>
 
-            <div className={styles['form-elements__checkboxes']}>
+            <div className={styles['form-elements__fields-buttons-checkboxes']}>
               <div className={styles['form-elements__large-wrapper']}>
                 <Heading type="h3" title="Checkbox Buttons" />
                 <CheckboxList />
@@ -124,7 +125,7 @@ export default function FormAndElements() {
               </div>
             </div>
 
-            <div className={styles['form-elements__buttons']}>
+            <div className={styles['form-elements__fields-buttons-buttons']}>
               <div className={styles['form-elements__large-wrapper']}>
                 <Heading type="h3" title="RANGE SLIDER" />
                 <RangeSlider

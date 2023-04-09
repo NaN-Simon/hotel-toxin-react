@@ -37,12 +37,12 @@ const CheckboxListRich = ({preset, dropWrapper, isOpened = true}: ICheckboxList)
   const [opened, setOpened] = useState(isOpened);
 
   const classesCheckboxForm = classNames(
-    styles['checkboxList__form'],
-    opened && styles['checkboxList__form--open']
+    styles['checkbox-list__form'],
+    opened && styles['checkbox-list__form--open']
   );
   const classesCheckboxBtn = classNames(
     'material-icons',
-    styles['checkboxList__btn'],
+    styles['checkbox-list__btn'],
 
   );
 
@@ -51,8 +51,8 @@ const CheckboxListRich = ({preset, dropWrapper, isOpened = true}: ICheckboxList)
   }, []);
 
   return (
-    <div className={styles['checkboxList']}>
-      {dropWrapper && <div className={styles['checkboxList__wrapper']}
+    <div className={styles['checkbox-list']}>
+      {dropWrapper && <div className={styles['checkbox-list__wrapper']}
         onClick={() => setOpened(!opened)}>
         <span className={classesCheckboxBtn}>expand_more</span>
       </div>

@@ -19,13 +19,13 @@
       line-height: 24px;
 
       &-name{
-        color: #1f2041;
+        color: $textColor;
         font-weight: 700;
         font-size: 14px;
       }
 
       &-date{
-        color: #1f2041bf;
+        color: $textColor_75;
         font-weight: 400;
         font-size: 14px;
       }
