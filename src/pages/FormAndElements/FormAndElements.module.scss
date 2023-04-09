@@ -152,6 +152,11 @@
       padding-left: 55px;
     }
   }
+
+  &__feedback{
+    display: flex;
+    flex-direction: row;
+  }
 }
 
 @media (max-width: 1080px){

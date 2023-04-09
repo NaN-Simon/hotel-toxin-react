@@ -15,6 +15,8 @@ import Paginate from '../../components/Paginate/Paginate';
 import RateButton from '../../components/RateButton/RateButton';
 import BulletList from '../../components/BulletList/BulletList';
 import styles from './FormAndElements.module.scss';
+import Dignity from '../../components/Dignity/Dignity';
+import DignityList from '../../components/DignityList/DignityList';
 
 export default function FormAndElements() {
   const classesDropdown1 = classNames(
@@ -235,6 +237,12 @@ export default function FormAndElements() {
                 <Heading type="h3" title="BULLET LIST" />
                 <BulletList />
               </div>
+            </div>
+          </div>
+
+          <div className={styles['form-elements__feedback']}>
+            <div className={styles['form-elements__large-wrapper']}>
+              <DignityList/>
             </div>
           </div>
         </div>

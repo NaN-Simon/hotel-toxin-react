@@ -1,0 +1,30 @@
+@import '../../styles/mixins.scss';
+
+.dignity {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-bottom: 23px;
+
+  &__image {
+    width: 40px;
+    height: 47px;
+    color: #bc9cff;
+    font-size: 47px;
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    padding-left: 17px;
+
+    &-title {
+      @include font-h3;
+      color: $textColor;
+    }
+
+    &-description {
+      @include font-body
+    }
+  }
+}
