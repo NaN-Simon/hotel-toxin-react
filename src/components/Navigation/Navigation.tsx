@@ -1,15 +1,27 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Navigation.module.scss';
-const Navigation = () => {
+
+type INavigation = {
+  id: number, 
+  title: string, 
+  url: string,
+}
+
+type INavigationArray = {
+  dataNav: INavigation[]
+}
+
+const Navigation = ({dataNav}: INavigationArray) => {
   return (
     <nav className={styles.navigation}>
-      <Link className={styles['navigation__item']} to="/colorandtypes">
-        Color and Types
+      {dataNav.map(item => {
+        return (
+      <Link key={item.id} className={styles['navigation__item']} to={item.url}>
+        {item.title}
       </Link>
-      <Link className={styles['navigation__item']} to="/formandelements">
-        Form And Elements
-      </Link>
+        )
+      })}
     </nav>
   );
 };

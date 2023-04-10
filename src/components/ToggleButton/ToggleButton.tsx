@@ -6,7 +6,7 @@ type IToggleButton = {
   title: string;
   name: string;
   checked?: boolean;
-  onChange: (id: number, checked: boolean) => void;
+  onChange?: (id: number, checked: boolean) => void;
 };
 
 const ToggleButton = ({
@@ -24,7 +24,7 @@ const ToggleButton = ({
         type="checkbox"
         name={name}
         checked={checked}
-        onChange={(e) => onChange(id, e.currentTarget.checked)}
+        onChange={(e) => onChange && onChange(id, e.currentTarget.checked)}
       />
 
       <span className={styles['toggle__input-title']}>{title}</span>

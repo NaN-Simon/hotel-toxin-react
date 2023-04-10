@@ -1,11 +1,14 @@
-.wrapper{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
+.start-page{
+  &__wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+
+  &__nav{
+    padding: 20px 0;
+  }
 }
 
-.nav{
-  padding: 20px 0;
-}

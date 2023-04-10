@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import ColorAndTypes from './pages/ColorAndTypes/ColorAndTypes';
 import FormAndElements from './pages/FormAndElements/FormAndElements';
+import Cards from './pages/Cards/Cards';
 import StartPage from './pages/StartPage/StartPage';
 import './App.scss';
 
@@ -11,6 +12,7 @@ const App = () => {
       <Route path="/" element={<StartPage />} />
       <Route path="/colorandtypes" element={<ColorAndTypes />} />
       <Route path="/formandelements" element={<FormAndElements />} />
+      <Route path="/cards" element={<Cards />} />
     </Routes>
   );
 };

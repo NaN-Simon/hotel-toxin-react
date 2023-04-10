@@ -1,6 +1,6 @@
 import React from 'react';
-import Colors from '../../components/Colors/Colors';
-import Types from '../../components/Types/Types';
+// import Colors from '../../components/Colors/Colors';
+// import Types from '../../components/Types/Types';
 import styles from './ColorAndTypes.module.scss';
 
 const dataColors = [
@@ -83,8 +83,8 @@ const ColorAndTypes = () => {
       </header>
       <main className={styles['color-and-types__main']}>
         <div className={styles['color-and-types__container']}>
-          <Colors colorProps={dataColors} />
-          <Types typeProps={dataTypes} />
+          {/* <Colors colorProps={dataColors} />
+          <Types typeProps={dataTypes} /> */}
         </div>
       </main>
     </div>

@@ -36,7 +36,7 @@ const CheckboxListRich = ({preset, dropWrapper, isOpened = true}: ICheckboxList)
   const [checkboxList, setCheckboxList] = useState<IDataCheckboxList[]>(dataPreset);
   const [opened, setOpened] = useState(isOpened);
 
-  const classesCheckboxForm = classNames(
+  const classesCheckbox = classNames(
     styles['checkbox-list__form'],
     opened && styles['checkbox-list__form--open']
   );
@@ -57,7 +57,7 @@ const CheckboxListRich = ({preset, dropWrapper, isOpened = true}: ICheckboxList)
         <span className={classesCheckboxBtn}>expand_more</span>
       </div>
       }
-      <form className = {classesCheckboxForm}>
+      <div className = {classesCheckbox}>
         {checkboxList.map((item) => {
           return (
             <Checkbox
@@ -69,7 +69,7 @@ const CheckboxListRich = ({preset, dropWrapper, isOpened = true}: ICheckboxList)
               onChange={onChange}/>
           );
         })}
-      </form>
+      </div>
     </div>
   );
 };

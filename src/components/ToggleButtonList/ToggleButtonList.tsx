@@ -31,7 +31,7 @@ const ToggleButtonList = () => {
 
   return (
     <div>
-      <form className={styles['checkbox-list__form']}>
+      <div className={styles['checkbox-list__form']}>
         {dataCheckboxList.map((item) => {
           return (
             <ToggleButton
@@ -44,7 +44,7 @@ const ToggleButtonList = () => {
             />
           );
         })}
-      </form>
+      </div>
     </div>
   );
 };
