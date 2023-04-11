@@ -1,21 +1,21 @@
 import React from 'react';
-import classNames from 'classnames';
+import BulletList from '../../components/BulletList/BulletList';
+import Button from '../../components/Button/Button';
 import CheckboxList from '../../components/CheckboxList/CheckboxList';
+import DatePickerCustom from '../../components/DatePicker/DatePicker';
+import DignityList from '../../components/DignityList/DignityList';
 import Dropdown from '../../components/Dropdown/Dropdown';
 import Heading from '../../components/Heading/Heading';
-import RadioButton from '../../components/RadioButton/RadioButton';
 import TextField from '../../components/TextField/TextField';
 import TextFieldMask from '../../components/TextFieldMask/TextFieldMask';
-import DatePickerCustom from '../../components/DatePicker/DatePicker';
 import ToggleButtonList from '../../components/ToggleButtonList/ToggleButtonList';
 import LikeButton from '../../components/LikeButton/LikeButton';
+import RadioButton from '../../components/RadioButton/RadioButton';
 import RangeSlider from '../../components/RangeSlider/RangeSlider';
-import Button from '../../components/Button/Button';
 import Paginate from '../../components/Paginate/Paginate';
 import RateButton from '../../components/RateButton/RateButton';
-import BulletList from '../../components/BulletList/BulletList';
-import DignityList from '../../components/DignityList/DignityList';
 import Review from '../../components/Review/Review';
+import classNames from 'classnames';
 import styles from './FormAndElements.module.scss';
 
 export default function FormAndElements() {
@@ -44,9 +44,10 @@ export default function FormAndElements() {
 
       <main className={styles['form-elements__main']}>
         <div className={styles['form-elements__container']}>
-
           <div className={styles['form-elements__fields-buttons']}>
-            <div className={styles['form-elements__fields-buttons-text-fields']}>
+            <div
+              className={styles['form-elements__fields-buttons-text-fields']}
+            >
               <div className={styles['form-elements__large-wrapper']}>
                 <Heading type="h3" title="TEXT FIELD" description="DEFAULT" />
                 <TextField placeholder="Email" name="email" />
@@ -103,7 +104,7 @@ export default function FormAndElements() {
               </div>
               <div className={styles['form-elements__big-wrapper']}>
                 <Heading type="h3" title="RADIO BUTTONS" />
-                <RadioButton />
+                <RadioButton preset="gender" name="gender" inline />
               </div>
               <div className={styles['form-elements__large-wrapper']}>
                 <Heading type="h3" title="Toggle" />

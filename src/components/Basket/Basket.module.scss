@@ -1,0 +1,107 @@
+@import '../../styles/mixins.scss';
+
+.basket{
+  width: 100%;
+
+  &__list{
+    list-style-type: none;
+
+    &-days{
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 15px;
+
+      &-calc{
+        @include font-body;
+
+        color: $textColor_75;
+        font-size: 14px;
+      }
+      
+      &-result{
+        @include font-body;
+
+        color: $textColor_75;
+        font-size: 14px;
+      }
+    }
+
+    &-discount{
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 15px;
+
+      &-calc{
+        display: flex;
+        gap: 3px;
+        align-items: center;
+        color: $textColor_75;
+        font-size: 14px;
+
+        @include font-body;
+
+        &-extra-info{
+          @include extra-info
+        }
+      }
+
+      &-result{
+        @include font-body;
+
+        color: $textColor_75;
+        font-size: 14px;
+      }
+    }
+
+    &-extra-service{
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 25px;
+
+      &-title{
+        display: flex;
+        gap: 3px;
+        align-items: center;
+        color: $textColor_75;
+        font-size: 14px;
+
+        @include font-body;
+
+        &-extra-info{
+          @include extra-info
+        }
+      }
+
+      &-cost{
+        @include font-body;
+
+        color: $textColor_75;
+        font-size: 14px;
+      }
+    }
+  }
+
+  &__result{
+    display: flex;
+    justify-content: space-between;
+    height: 22px;
+    border-bottom: 2px dotted $textColor_25;
+
+    &-title{
+      font-weight: 700;
+      font-size: 19px;
+      font-style: normal;
+      line-height: 23px;
+      border-bottom: 22px solid $mainBackground;
+    }
+
+    &-result{
+      font-weight: 700;
+      font-size: 1.3572rem;
+      font-family: montserrat,arial,sans-serif;
+      font-style: normal;
+      line-height: 23px;
+      border-bottom: 22px solid $mainBackground;
+    }
+  }
+}

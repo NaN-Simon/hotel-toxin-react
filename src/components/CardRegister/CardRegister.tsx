@@ -20,7 +20,7 @@ const CardRegister = () => {
         <TextField placeholder="Фамилия" name="second-name" />
       </div>
       <div className={styles['card-register__gender']}>
-        <RadioButton />
+        <RadioButton preset='gender' name= 'gender' inline />
       </div>
       <div className={styles['card-register__birthday']}>
         <div className={styles['card-register__birthday-heading']}>
