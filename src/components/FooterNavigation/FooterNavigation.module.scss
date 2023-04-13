@@ -1,0 +1,24 @@
+@import '../../styles/mixins.scss';
+
+.footer-navigation{
+  display: flex;
+  flex-direction: row;
+  gap: 0 40px;
+
+  &__item{
+    &-title{
+      padding-bottom: 15px;
+      color: $textColor;
+
+      @include font-h3;
+    }
+
+    &-subtitle{
+      padding: 2px 0;
+      color: $textColor_75;
+      @include font-body;
+      font-size: 14px;
+
+    }
+  }
+}

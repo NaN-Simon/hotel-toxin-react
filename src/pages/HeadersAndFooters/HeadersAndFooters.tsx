@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../../components/Header/Header';
 import styles from './HeadersAndFooters.module.scss';
+import Footer from '../../components/Footer/Footer';
 
 const HeadersAndFooters = () => {
   return (
@@ -15,6 +16,9 @@ const HeadersAndFooters = () => {
           </div>
           <div className={styles['headers-and-footers__header']}>
             <Header type="user" userName="Mr Smith" />
+          </div>
+          <div  className={styles['headers-and-footers__footer']}>
+            <Footer/>
           </div>
         </div>
       </main>
