@@ -5,6 +5,7 @@ import FormAndElements from './pages/FormAndElements/FormAndElements';
 import Cards from './pages/Cards/Cards';
 import StartPage from './pages/StartPage/StartPage';
 import './App.scss';
+import HeadersAndFooters from './pages/HeadersAndFooters/HeadersAndFooters';
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
       <Route path="/colorandtypes" element={<ColorAndTypes />} />
       <Route path="/formandelements" element={<FormAndElements />} />
       <Route path="/cards" element={<Cards />} />
+      <Route path="/headersandfooters" element={<HeadersAndFooters />} />
     </Routes>
   );
 };

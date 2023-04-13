@@ -15,4 +15,26 @@
     max-width: 1200px;
     margin: 0 auto;
   }
+
+  &__search-and-register{
+    &-search{
+      margin-bottom: 40px;
+    }
+  }
+
+  &__booking-and-login{
+    &-booking{
+      margin-bottom: 40px;
+    }
+  }
+
+  &__calendar-and-rooms{
+    &-calendar{
+      margin-bottom: 40px;
+    }
+
+    &-room1{
+      margin-bottom: 40px;
+    }
+  }
 }

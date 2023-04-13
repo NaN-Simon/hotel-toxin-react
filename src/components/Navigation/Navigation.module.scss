@@ -5,11 +5,69 @@
   flex-direction: column;
   gap: 10px 0;
 
+  &--horizontal{
+    flex-direction: row;
+    gap: 20px;
+    justify-content: space-between;
+  }
+
   &__item{
+    display: flex;
+    align-items: center;
+    color: $textColor_50;
+    font-family: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+
+    @include font-body;
+
+    &--current{
+      color: $textColor_75;
+      font-weight: 700;
+    }
+
+    &:hover{
+      background: $textColor_5;
+    }
+
+    &-container{
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 50px;
+
+    }
+  }
+
+  &__subitems{
+    position: absolute;
+    top: 24px;
+    z-index: 1;
+    display: none;
+    flex-direction: column;
+    text-align: center;
+    background: $mainBackground;
+    border-radius: 4px;
+    box-shadow: $elementBoxShadow;
+
+    &--open{
+      display: flex;
+    }
+  }
+
+  &__subitem{
+    min-width: 200px;
     color: $elementColor;
     font-family: inherit;
     text-decoration: none;
+    cursor: pointer;
 
     @include font-body;
+
+    &:hover{
+      background: $textColor_5;
+    }
+
   }
 }

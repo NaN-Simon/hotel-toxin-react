@@ -40,6 +40,10 @@
 
         @include font-body;
 
+        &-text{
+          width: auto;
+        }
+
         &-extra-info{
           @include extra-info
         }
@@ -59,7 +63,7 @@
       padding-bottom: 25px;
 
       &-title{
-        display: flex;
+        display: inline-block;
         gap: 3px;
         align-items: center;
         color: $textColor_75;
@@ -67,6 +71,10 @@
 
         @include font-body;
 
+        &-text{
+          width: auto;
+        }
+        
         &-extra-info{
           @include extra-info
         }

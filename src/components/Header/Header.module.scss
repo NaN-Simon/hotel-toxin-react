@@ -1,0 +1,67 @@
+@import '../../styles/mixins.scss';
+
+.header{
+  display: flex;
+  flex-direction: row;
+  gap: 80px;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  background: #fff;
+  box-shadow: $elementBoxShadow;
+
+  &__logo{
+    width: 127px;
+    height: 40px;
+    background-image: url('../../assets/img/logo/colored-logo.png');
+    background-repeat: no-repeat;
+  }
+
+  &__menu{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    height: 70px;
+  }
+
+  &__profile{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+
+    &-login {
+        width: 100px;
+        height: 44px;
+    }
+  
+    &-register {
+      width: 320px;
+      height: 44px;
+    }
+
+    &-space{
+      width: 1px;
+      height: inherit;
+      background: $textColor_25;
+    }
+
+    &-username{
+      color: $textColor_50;
+      font-family: inherit;
+      text-decoration: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s;
+
+      @include font-body;
+
+      &:hover{
+        background: $textColor_5;
+
+      }
+    }
+
+  }
+}

@@ -1,28 +1,83 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import classNames from 'classnames';
 import styles from './Navigation.module.scss';
 
 type INavigation = {
-  id: number, 
-  title: string, 
-  url: string,
-}
+  id: number;
+  title: string;
+  url: string;
+  current?: boolean;
+  droplist?: Idroplist[];
+};
+
+type Idroplist = {
+  id: number;
+  subtitle: string;
+  suburl: string;
+};
 
 type INavigationArray = {
-  dataNav: INavigation[]
+  dataNavigation: INavigation[];
+  isHorizontal?: boolean;
+};
+
+function renderSubItems(item: INavigation) {
+  return item.droplist?.map((subitem) => {
+    return (
+      <div key={subitem.id} className={styles['navigation__subitem']}>
+        {subitem.subtitle}
+      </div>
+    );
+  });
 }
 
-const Navigation = ({dataNav}: INavigationArray) => {
+const Navigation = ({ dataNavigation, isHorizontal }: INavigationArray) => {
+  const classesNavigation = classNames(
+    styles['navigation'],
+    isHorizontal && classNames(styles['navigation--horizontal'])
+  );
+
   return (
-    <nav className={styles.navigation}>
-      {dataNav.map(item => {
+    <ul className={classesNavigation}>
+      {dataNavigation.map((item) => {
+        const [opened, setOpened] = useState(false);
+        const classesItem = classNames(
+          styles['navigation__item'],
+          item.current && styles['navigation__item--current']
+        );
+        const classesItemIco = classNames(item.droplist && 'material-icons');
+        const classesItemContainer = classNames(
+          styles['navigation__item-container']
+        );
+        const classesSubItems = classNames(
+          styles['navigation__subitems'],
+          opened && styles['navigation__subitems--open']
+        );
+
         return (
-      <Link key={item.id} className={styles['navigation__item']} to={item.url}>
-        {item.title}
-      </Link>
-        )
+          <li
+            className={classesItemContainer}
+            key={item.id}
+            onMouseLeave={() => setOpened(false)}
+          >
+            <Link
+              className={classesItem}
+              to={item.url}
+              onClick={() => setOpened(!opened)}
+            >
+              <span>{item.title}</span>
+              {item.droplist && (
+                <div className={classesItemIco}>
+                  {opened ? 'expand_more' : 'expand_less'}
+                </div>
+              )}
+            </Link>
+            <div className={classesSubItems}>{renderSubItems(item)}</div>
+          </li>
+        );
       })}
-    </nav>
+    </ul>
   );
 };
 

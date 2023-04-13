@@ -1,5 +1,8 @@
+@import '../../styles/mixins.scss';
+
 .carousel-root{
   width: 270px;
+  box-shadow: $elementBoxShadow;
 }
 
 .carousel .control-dots {
