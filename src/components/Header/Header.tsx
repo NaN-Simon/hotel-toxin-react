@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
+import BurgerMenu from '../BurgerMenu/BurgerMenu';
 import Button from '../Button/Button';
 import Navigation from '../../components/Navigation/Navigation';
 import styles from './Header.module.scss';
+import classNames from 'classnames';
+import CardLoginMini from '../CardLoginMini/CardLoginMini';
 
 const dataHeaderNavigation = [
   { id: 1, title: 'О нас', url: '#', current: true },
@@ -35,37 +38,20 @@ type IHeader = {
   userName?: string;
 };
 
-function renderRightSection(type: string, userName?: string) {
-  if (type === 'guest') {
-    return (
-      <div className={styles['header__profile']}>
-        <div className={styles['header__profile-login']}>
-          <Button type="tranparent">войти</Button>
-        </div>
-        <div className={styles['header__profile-register']}>
-          <Button type="colored" arrow>
-            зарегистрироваться
-          </Button>
-        </div>
-      </div>
-    );
-  } else if (userName) {
-    return (
-      <div className={styles['header__profile']}>
-        <div className={styles['header__profile-space']}></div>
-        <div className={styles['header__profile-username']}>{userName}</div>
-      </div>
-    );
-  }
-}
-
 const Header = ({ type, userName }: IHeader) => {
   return (
     <div className={styles['header']}>
       <div className={styles['header__logo']}></div>
       <div className={styles['header__menu']}>
         <Navigation dataNavigation={dataHeaderNavigation} isHorizontal />
-        {renderRightSection(type, userName)}
+        <CardLoginMini type={type} userName={userName} />
+      </div>
+      <div className={styles['header__burger']}>
+        <BurgerMenu
+          dataNavigation={dataHeaderNavigation}
+          type={type}
+          userName={userName}
+        />
       </div>
     </div>
   );

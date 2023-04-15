@@ -17,8 +17,8 @@ const HeadersAndFooters = () => {
           <div className={styles['headers-and-footers__header']}>
             <Header type="user" userName="Mr Smith" />
           </div>
-          <div  className={styles['headers-and-footers__footer']}>
-            <Footer/>
+          <div className={styles['headers-and-footers__footer']}>
+            <Footer />
           </div>
         </div>
       </main>

@@ -1,0 +1,47 @@
+@import '../../styles/mixins.scss';
+
+.header{
+  &__profile{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+
+    &--vertical{
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &-login {
+        width: 100px;
+        height: 44px;
+    }
+
+    &-register {
+      width: 320px;
+      height: 44px;
+    }
+
+    &-space{
+      width: 1px;
+      height: inherit;
+      background: $textColor_25;
+    }
+
+    &-username{
+      color: $textColor_50;
+      font-family: inherit;
+      text-decoration: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s;
+
+      @include font-body;
+
+      &:hover{
+        background: $textColor_5;
+
+      }
+    }
+  }
+}

@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: center;
   width: 100vw;
-  background: #fff;
+  background: $mainBackground;
   box-shadow: $elementBoxShadow;
 
   &__logo{
@@ -26,42 +26,24 @@
     height: 70px;
   }
 
-  &__profile{
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
+  &__burger{
+    display: none;
+  }
+}
 
-    &-login {
-        width: 100px;
-        height: 44px;
-    }
-  
-    &-register {
-      width: 320px;
-      height: 44px;
-    }
+@media(max-width: 1190px){
+  .header{
+    justify-content: space-between;
+    padding: 0 30px;
 
-    &-space{
-      width: 1px;
-      height: inherit;
-      background: $textColor_25;
+    &__menu{
+      display: none;
     }
 
-    &-username{
-      color: $textColor_50;
-      font-family: inherit;
-      text-decoration: none;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: all 0.3s;
-
-      @include font-body;
-
-      &:hover{
-        background: $textColor_5;
-
-      }
+    &__burger{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
     }
-
   }
 }

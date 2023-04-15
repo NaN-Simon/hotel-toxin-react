@@ -16,7 +16,9 @@
     &-subtitle{
       padding: 2px 0;
       color: $textColor_75;
+
       @include font-body;
+
       font-size: 14px;
 
     }
