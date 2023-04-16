@@ -13,33 +13,31 @@ type ITypeArray = {
   typeProps: ITypes[];
 };
 
-const Types = ({ typeProps }: ITypeArray) => {
+function Types({ typeProps }: ITypeArray) {
   return (
-    <ul className={classes['type']}>
-      {typeProps.map((colorElement: ITypes) => {
-        return (
-          <li className={classes['type__item']} key={colorElement.id}>
-            <div
-              className={classNames(
-                classes['type__tag'],
-                classes[`type__${colorElement.type}`]
-              )}
-            >
-              {colorElement.tag}
-            </div>
-            <div
-              className={classNames(
-                classes['type__description'],
-                classes[`type__${colorElement.type}`]
-              )}
-            >
-              {colorElement.description}
-            </div>
-          </li>
-        );
-      })}
+    <ul className={classes.type}>
+      {typeProps.map((colorElement: ITypes) => (
+        <li className={classes.type__item} key={colorElement.id}>
+          <div
+            className={classNames(
+              classes.type__tag,
+              classes[`type__${colorElement.type}`],
+            )}
+          >
+            {colorElement.tag}
+          </div>
+          <div
+            className={classNames(
+              classes.type__description,
+              classes[`type__${colorElement.type}`],
+            )}
+          >
+            {colorElement.description}
+          </div>
+        </li>
+      ))}
     </ul>
   );
-};
+}
 
 export default Types;

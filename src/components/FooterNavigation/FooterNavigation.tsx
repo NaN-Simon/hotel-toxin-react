@@ -19,36 +19,26 @@ const dataNav = [
   },
 ];
 
-type IDataNav = {
-  id: number;
-  title: string;
-  list: string[];
-};
-
-const FooterNavigation = () => {
+function FooterNavigation() {
   return (
     <div className={styles['footer-navigation']}>
-      {dataNav.map((item) => {
-        return (
-          <div className={styles['footer-navigation__item']} key={item.id}>
-            <div className={styles['footer-navigation__item-title']}>
-              {item.title}
-            </div>
-            {item.list.map((subitem, index) => {
-              return (
-                <div
-                  className={styles['footer-navigation__item-subtitle']}
-                  key={item.id + index}
-                >
-                  {subitem}
-                </div>
-              );
-            })}
+      {dataNav.map((item) => (
+        <div className={styles['footer-navigation__item']} key={item.id}>
+          <div className={styles['footer-navigation__item-title']}>
+            {item.title}
           </div>
-        );
-      })}
+          {item.list.map((subitem, index) => (
+            <div
+              className={styles['footer-navigation__item-subtitle']}
+              key={item.id + index}
+            >
+              {subitem}
+            </div>
+          ))}
+        </div>
+      ))}
     </div>
   );
-};
+}
 
 export default FooterNavigation;

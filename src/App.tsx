@@ -7,7 +7,7 @@ import StartPage from './pages/StartPage/StartPage';
 import './App.scss';
 import HeadersAndFooters from './pages/HeadersAndFooters/HeadersAndFooters';
 
-const App = () => {
+function App() {
   return (
     <Routes>
       <Route path="/" element={<StartPage />} />
@@ -17,6 +17,6 @@ const App = () => {
       <Route path="/headersandfooters" element={<HeadersAndFooters />} />
     </Routes>
   );
-};
+}
 
 export default App;

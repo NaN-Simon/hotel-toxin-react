@@ -2,34 +2,36 @@ import React from 'react';
 import styles from './Basket.module.scss';
 
 const costDay = 9990;
-const dataBasket = [
-  { day: 4, currency: '₽', discount: 2179, extraServiceCost: 300 },
-];
 
 type IBasket = {
   day: number;
   currency: string;
-  discount?: number;
+  discount: number;
   extraServiceCost: number;
 };
 
 const getPluralDay = (number: number, words: string[]) => {
   const value = Math.abs(number) % 100;
-  let num = value % 10;
-  if (value > 10 && value < 20) return value + ' ' + words[2];
-  if (num > 1 && num < 5) return value + ' ' + words[1];
-  if (num == 1) return value + ' ' + words[0];
-  return number + ' ' + words[2];
+  const num = value % 10;
+  if (value > 10 && value < 20) return `${value} ${words[2]}`;
+  if (num > 1 && num < 5) return `${value} ${words[1]}`;
+  if (num === 1) return `${value} ${words[0]}`;
+  return `${number} ${words[2]}`;
 };
 
-const Basket = ({ day, currency, discount = 0, extraServiceCost }: IBasket) => {
+function Basket({
+  day, currency, discount = 0, extraServiceCost,
+}: IBasket) {
   return (
     <div className={styles['basket']}>
       <ul className={styles['basket__list']}>
         <li className={styles['basket__list-days']}>
           <span className={styles['basket__list-days-calc']}>
             {costDay}
-            {currency} X {getPluralDay(day, ['сутки', 'суток', 'суток'])}
+            {currency}
+            {' '}
+            X
+            {getPluralDay(day, ['сутки', 'суток', 'суток'])}
           </span>
           <span className={styles['basket__list-days-result']}>
             {costDay * day}
@@ -40,7 +42,9 @@ const Basket = ({ day, currency, discount = 0, extraServiceCost }: IBasket) => {
           <li className={styles['basket__list-discount']}>
             <span className={styles['basket__list-discount-calc']}>
               <span className={styles['basket__list-discount-calc-text']}>
-                Сбор за услуги: скидка {discount}
+                Сбор за услуги: скидка
+                {' '}
+                {discount}
                 {currency}
               </span>
               <span className={styles['basket__list-discount-calc-extra-info']}>
@@ -48,7 +52,8 @@ const Basket = ({ day, currency, discount = 0, extraServiceCost }: IBasket) => {
               </span>
             </span>
             <span className={styles['basket__list-discount-result']}>
-              -{discount}
+              -
+              {discount}
               {currency}
             </span>
           </li>
@@ -80,6 +85,6 @@ const Basket = ({ day, currency, discount = 0, extraServiceCost }: IBasket) => {
       </div>
     </div>
   );
-};
+}
 
 export default Basket;

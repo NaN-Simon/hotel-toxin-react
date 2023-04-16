@@ -7,19 +7,23 @@ type IHeading = {
   description?: string;
 };
 
-const Heading = ({ type, title, description }: IHeading) => {
+function Heading({ type, title, description }: IHeading) {
   const heading = React.createElement(
     type,
     { className: styles[`heading__title-type-${type}`] },
-    title
+    title,
   );
 
   return (
-    <div className={styles.heading}>
+    <div className={styles['heading']}>
       {heading}
       <span className={styles['heading__description']}>{description}</span>
     </div>
   );
-};
+}
 
 export default Heading;
+
+Heading.defaultProps = {
+  description: null,
+};

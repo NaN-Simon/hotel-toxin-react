@@ -1,3 +1,4 @@
+/*eslint-disable jsx-a11y/label-has-for */
 import React, { useState } from 'react';
 import classNames from 'classnames';
 import styles from './LikeButton.module.scss';
@@ -9,24 +10,24 @@ type ILikeButton = {
   checked?: boolean;
 };
 
-const LikeButton = ({ id, title, name, checked }: ILikeButton) => {
+function LikeButton({
+  id, title, name, checked,
+}: ILikeButton) {
   const [isChecked, setIsChecked] = useState(checked || false);
   const [numberTitle, setNumberTitle] = useState(title);
 
   const classesLikeButtonInput = classNames(
     'material-icons',
-    styles['like-button__input']
+    styles['like-button__input'],
   );
   const classesLikeButtonlabel = classNames(
     styles['like-button__title'],
-    isChecked && styles['like-button__title-blue']
+    isChecked && styles['like-button__title-blue'],
   );
 
   const onChange = () => {
     setIsChecked((isChecked) => !isChecked);
-    setNumberTitle((numberTitle: number) =>
-      isChecked ? numberTitle - 1 : numberTitle + 1
-    );
+    setNumberTitle((numberTitle: number) => (isChecked ? numberTitle - 1 : numberTitle + 1));
   };
 
   return (
@@ -42,6 +43,10 @@ const LikeButton = ({ id, title, name, checked }: ILikeButton) => {
       <label className={classesLikeButtonlabel}>{numberTitle}</label>
     </div>
   );
-};
+}
 
 export default LikeButton;
+
+LikeButton.defaultProps = {
+  checked: null,
+};

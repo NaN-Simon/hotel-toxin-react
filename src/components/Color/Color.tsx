@@ -8,13 +8,15 @@ type IColor = {
   hexName: string;
 }
 
-const Color = ({ id, color, title, hexName }: IColor) => {
+function Color({
+  id, color, title, hexName,
+}: IColor) {
   return (
     <div id={id.toString()} className={styles['color__item']}>
       <div
         style={{ backgroundColor: color }}
         className={styles['color__box']}
-      ></div>
+      />
 
       <div className={styles['color__info']}>
         <h2 className={styles['color__title']}>{title}</h2>
@@ -22,6 +24,6 @@ const Color = ({ id, color, title, hexName }: IColor) => {
       </div>
     </div>
   );
-};
+}
 
 export default Color;

@@ -9,13 +9,13 @@ const dataNavigation = [
   { id: 4, title: 'Headers And Footers', url: '/headersandfooters' },
 ];
 
-const StartPage = () => {
+function StartPage() {
   return (
     <main className={styles['start-page__wrapper']}>
       <h1 className={styles['start-page__nav']}>Navigation</h1>
       <Navigation dataNavigation={dataNavigation} />
     </main>
   );
-};
+}
 
 export default StartPage;

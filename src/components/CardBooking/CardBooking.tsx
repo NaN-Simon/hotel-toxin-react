@@ -1,14 +1,14 @@
 import React from 'react';
 import Basket from '../Basket/Basket';
-import Button from '../../components/Button/Button';
-import DatePickerCustom from '../../components/DatePicker/DatePicker';
-import Dropdown from '../../components/Dropdown/Dropdown';
+import Button from '../Button/Button';
+import DatePickerCustom from '../DatePicker/DatePicker';
+import Dropdown from '../Dropdown/Dropdown';
 import Heading from '../Heading/Heading';
 import RoomNumber from '../RoomNumber/RoomNumber';
 import RoomPrice from '../RoomPrice/RoomPrice';
 import styles from './CardBooking.module.scss';
 
-const CardBooking = () => {
+function CardBooking() {
   return (
     <form name="card-booking1" className={styles['card-room-booking']}>
       <div className={styles['card-room-booking__number-price']}>
@@ -39,6 +39,6 @@ const CardBooking = () => {
       </div>
     </form>
   );
-};
+}
 
 export default CardBooking;

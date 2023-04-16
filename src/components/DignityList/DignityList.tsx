@@ -24,22 +24,20 @@ const dataDignity = [
   },
 ];
 
-const DignityList = () => {
+function DignityList() {
   return (
     <div className={styles['dignity-list']}>
-      {dataDignity.map((item: IDignity) => {
-        return (
-          <Dignity
-            key={item.id}
-            id={item.id}
-            title={item.title}
-            description={item.description}
-            materialIcon={item.materialIcon}
-          />
-        );
-      })}
+      {dataDignity.map((item: IDignity) => (
+        <Dignity
+          key={item.id}
+          id={item.id}
+          title={item.title}
+          description={item.description}
+          materialIcon={item.materialIcon}
+        />
+      ))}
     </div>
   );
-};
+}
 
 export default DignityList;

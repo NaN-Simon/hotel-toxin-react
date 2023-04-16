@@ -1,3 +1,4 @@
+/*eslint-disable react/jsx-props-no-spreading */
 import React, { forwardRef, LegacyRef } from 'react';
 import InputMask, { ReactInputMask } from 'react-input-mask';
 import classNames from 'classnames';
@@ -16,7 +17,7 @@ const TextFieldMask = forwardRef(
   (props: ITextFieldMask, ref: LegacyRef<ReactInputMask> | undefined) => {
     const classesTextField = classNames(
       styles['text-field__input'],
-      props.focused && styles['text-field__input--focused']
+      props.focused && styles['text-field__input--focused'],
     );
 
     return (
@@ -24,9 +25,16 @@ const TextFieldMask = forwardRef(
         <InputMask ref={ref} className={classesTextField} {...props} />
       </div>
     );
-  }
+  },
 );
 
 TextFieldMask.displayName = 'TextFieldMask';
 
 export default TextFieldMask;
+
+TextFieldMask.defaultProps = {
+  placeholder: undefined,
+  customclassname: undefined,
+  customclassnamewrapper: undefined,
+  focused: false,
+};

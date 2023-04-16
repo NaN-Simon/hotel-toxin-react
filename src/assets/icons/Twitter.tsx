@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Twitter = () => {
+function Twitter() {
   return (
     <div>
       <svg
@@ -30,6 +30,6 @@ const Twitter = () => {
       </svg>
     </div>
   );
-};
+}
 
 export default Twitter;

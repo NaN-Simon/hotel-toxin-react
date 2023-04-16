@@ -1,8 +1,14 @@
 import React, { useState } from 'react';
-import CardLoginMini from '../CardLoginMini/CardLoginMini';
 import classNames from 'classnames';
+import CardLoginMini from '../CardLoginMini/CardLoginMini';
 import styles from './BurgerMenu.module.scss';
 import Navigation from '../Navigation/Navigation';
+
+type Idroplist = {
+  id: number;
+  subtitle: string;
+  suburl: string;
+};
 
 type INavigation = {
   id: number;
@@ -12,27 +18,21 @@ type INavigation = {
   droplist?: Idroplist[];
 };
 
-type Idroplist = {
-  id: number;
-  subtitle: string;
-  suburl: string;
-};
-
 type INavigationArray = {
   dataNavigation: INavigation[];
   type: string;
   userName?: string;
 };
 
-const BurgerMenu = ({ dataNavigation, type, userName }: INavigationArray) => {
+function BurgerMenu({ dataNavigation, type, userName }: INavigationArray) {
   const [openMenu, setOpenMenu] = useState(false);
   const classesMenuToggle = classNames(
     styles['menu-toggle'],
-    openMenu && styles['burger__open']
+    openMenu && styles['burger__open'],
   );
   const classesMenuNav = classNames(
     styles['burger__nav'],
-    openMenu && styles['burger__nav--open']
+    openMenu && styles['burger__nav--open'],
   );
   console.log(dataNavigation);
 
@@ -40,18 +40,22 @@ const BurgerMenu = ({ dataNavigation, type, userName }: INavigationArray) => {
     <div className={styles['burger__container']}>
       <div
         className={classesMenuToggle}
+        role="presentation" //todo
         onClick={() => {
           setOpenMenu(!openMenu);
         }}
+        onKeyDown={() => {
+          setOpenMenu(!openMenu);
+        }} //todo
       >
         <div className={styles['burger']}>
-          <span className={styles['burger-line']}></span>
-          <span className={styles['burger-line']}></span>
-          <span className={styles['burger-line']}></span>
+          <span className={styles['burger-line']} />
+          <span className={styles['burger-line']} />
+          <span className={styles['burger-line']} />
         </div>
         <div className={styles['burger__cross']}>
-          <span className={styles['burger__cross-line']}></span>
-          <span className={styles['burger__cross-line']}></span>
+          <span className={styles['burger__cross-line']} />
+          <span className={styles['burger__cross-line']} />
         </div>
       </div>
       <div className={classesMenuNav}>
@@ -60,6 +64,10 @@ const BurgerMenu = ({ dataNavigation, type, userName }: INavigationArray) => {
       </div>
     </div>
   );
-};
+}
 
 export default BurgerMenu;
+
+BurgerMenu.defaultProps = {
+  userName: null,
+};

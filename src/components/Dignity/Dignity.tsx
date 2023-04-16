@@ -1,6 +1,6 @@
 import React from 'react';
-import styles from './Dignity.module.scss';
 import classNames from 'classnames';
+import styles from './Dignity.module.scss';
 
 type IDignity = {
   id: number;
@@ -8,7 +8,9 @@ type IDignity = {
   description: string;
   materialIcon: string;
 };
-const Dignity = ({ id, title, description, materialIcon }: IDignity) => {
+function Dignity({
+  id, title, description, materialIcon,
+}: IDignity) {
   const classesImg = classNames('material-icons', styles['dignity__image']);
   return (
     <div id={id.toString()} className={styles['dignity']}>
@@ -19,6 +21,6 @@ const Dignity = ({ id, title, description, materialIcon }: IDignity) => {
       </div>
     </div>
   );
-};
+}
 
 export default Dignity;

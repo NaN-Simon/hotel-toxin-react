@@ -1,5 +1,4 @@
 import React from 'react';
-import classNames from 'classnames';
 import CardSearch from '../../components/CardSearch/CardSearch';
 import CardRegister from '../../components/CardRegister/CardRegister';
 import CardBooking from '../../components/CardBooking/CardBooking';
@@ -8,7 +7,7 @@ import DatePickerCustom from '../../components/DatePicker/DatePicker';
 import styles from './Cards.module.scss';
 import CarouselResponsive from '../../components/CarouselResponsive/CarouselResponsive';
 
-const Cards = () => {
+function Cards() {
   return (
     <div>
       <header className={styles['cards__header']}>Cards</header>
@@ -50,6 +49,6 @@ const Cards = () => {
       </main>
     </div>
   );
-};
+}
 
 export default Cards;

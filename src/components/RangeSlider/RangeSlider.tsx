@@ -13,7 +13,7 @@ type IRangeSlider = {
   vertical?: boolean;
 };
 
-const RangeSlider = ({
+function RangeSlider({
   min,
   max,
   count,
@@ -21,15 +21,15 @@ const RangeSlider = ({
   startValue,
   range,
   vertical,
-}: IRangeSlider) => {
+}: IRangeSlider) {
   const [value, setValue] = useState(startValue);
   const [inputValue, setInputValue] = useState(value);
   return (
-    <div className={'range-slider'}>
-      <div className={'range-slider__scoreboard'}>
+    <div className="range-slider">
+      <div className="range-slider__scoreboard">
         {Array.isArray(inputValue)
-          ? inputValue.join('₽ - ') + '₽'
-          : inputValue + '₽'}
+          ? `${inputValue.join('₽ - ')}₽`
+          : `${inputValue}₽`}
       </div>
 
       <Slider
@@ -48,6 +48,13 @@ const RangeSlider = ({
       />
     </div>
   );
-};
+}
 
 export default RangeSlider;
+
+RangeSlider.defaultProps = {
+  count: null,
+  step: null,
+  range: false,
+  vertical: false,
+};

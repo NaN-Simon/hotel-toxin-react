@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 import BulletList from '../../components/BulletList/BulletList';
 import Button from '../../components/Button/Button';
 import CheckboxList from '../../components/CheckboxList/CheckboxList';
@@ -15,25 +16,24 @@ import RangeSlider from '../../components/RangeSlider/RangeSlider';
 import Paginate from '../../components/Paginate/Paginate';
 import RateButton from '../../components/RateButton/RateButton';
 import Review from '../../components/Review/Review';
-import classNames from 'classnames';
 import styles from './FormAndElements.module.scss';
 
 export default function FormAndElements() {
   const classesDropdown1 = classNames(
     styles['form-elements__large-wrapper'],
-    styles['form-elements__large-wrapper--indexUp1']
+    styles['form-elements__large-wrapper--indexUp1'],
   );
   const classesDropdown2 = classNames(
     styles['form-elements__large-wrapper'],
-    styles['form-elements__large-wrapper--indexUp2']
+    styles['form-elements__large-wrapper--indexUp2'],
   );
   const classesDropdown3 = classNames(
     styles['form-elements__large-wrapper'],
-    styles['form-elements__large-wrapper--indexUp3']
+    styles['form-elements__large-wrapper--indexUp3'],
   );
   const classesDropdown4 = classNames(
     styles['form-elements__large-wrapper'],
-    styles['form-elements__large-wrapper--indexUp4']
+    styles['form-elements__large-wrapper--indexUp4'],
   );
 
   return (
@@ -133,7 +133,7 @@ export default function FormAndElements() {
                   min={0}
                   max={15000}
                   count={0}
-                  range={true}
+                  range
                   step={100}
                   startValue={[5000, 10000]}
                 />

@@ -3,7 +3,7 @@ import Header from '../../components/Header/Header';
 import styles from './HeadersAndFooters.module.scss';
 import Footer from '../../components/Footer/Footer';
 
-const HeadersAndFooters = () => {
+function HeadersAndFooters() {
   return (
     <div>
       <header className={styles['headers-and-footers__page-title']}>
@@ -24,6 +24,6 @@ const HeadersAndFooters = () => {
       </main>
     </div>
   );
-};
+}
 
 export default HeadersAndFooters;

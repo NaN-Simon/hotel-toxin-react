@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Facebook = () => {
+function Facebook() {
   return (
     <div>
       <svg
@@ -30,6 +30,6 @@ const Facebook = () => {
       </svg>
     </div>
   );
-};
+}
 
 export default Facebook;

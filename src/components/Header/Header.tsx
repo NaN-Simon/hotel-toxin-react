@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import BurgerMenu from '../BurgerMenu/BurgerMenu';
-import Button from '../Button/Button';
-import Navigation from '../../components/Navigation/Navigation';
-import styles from './Header.module.scss';
-import classNames from 'classnames';
 import CardLoginMini from '../CardLoginMini/CardLoginMini';
+import Navigation from '../Navigation/Navigation';
+import styles from './Header.module.scss';
 
 const dataHeaderNavigation = [
-  { id: 1, title: 'О нас', url: '#', current: true },
+  {
+    id: 1, title: 'О нас', url: '#', current: true,
+  },
   {
     id: 2,
     title: 'Услуги',
@@ -38,10 +38,10 @@ type IHeader = {
   userName?: string;
 };
 
-const Header = ({ type, userName }: IHeader) => {
+function Header({ type, userName }: IHeader) {
   return (
     <div className={styles['header']}>
-      <div className={styles['header__logo']}></div>
+      <div className={styles['header__logo']} />
       <div className={styles['header__menu']}>
         <Navigation dataNavigation={dataHeaderNavigation} isHorizontal />
         <CardLoginMini type={type} userName={userName} />
@@ -55,6 +55,10 @@ const Header = ({ type, userName }: IHeader) => {
       </div>
     </div>
   );
-};
+}
 
 export default Header;
+
+Header.defaultProps = {
+  userName: null,
+};

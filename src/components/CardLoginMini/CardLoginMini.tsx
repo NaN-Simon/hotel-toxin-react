@@ -1,17 +1,17 @@
 import React from 'react';
+import classNames from 'classnames';
 import Button from '../Button/Button';
 import styles from './CardLoginMini.module.scss';
-import classNames from 'classnames';
 
 type ICardLoginMini = {
   type: string;
   userName?: string;
   isVertical?: boolean;
 };
-const CardLoginMini = ({ type, userName, isVertical }: ICardLoginMini) => {
+function CardLoginMini({ type, userName, isVertical }: ICardLoginMini) {
   const classesProfile = classNames(
     styles['header__profile'],
-    isVertical && styles['header__profile--vertical']
+    isVertical && styles['header__profile--vertical'],
   );
   return (
     <div>
@@ -29,12 +29,17 @@ const CardLoginMini = ({ type, userName, isVertical }: ICardLoginMini) => {
       )}
       {userName && (
         <div className={styles['header__profile']}>
-          <div className={styles['header__profile-space']}></div>
+          <div className={styles['header__profile-space']} />
           <div className={styles['header__profile-username']}>{userName}</div>
         </div>
       )}
     </div>
   );
-};
+}
 
 export default CardLoginMini;
+
+CardLoginMini.defaultProps = {
+  userName: null,
+  isVertical: null,
+};

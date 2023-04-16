@@ -19,34 +19,29 @@ type IToggleButtonList = {
   checked?: boolean;
 };
 
-const ToggleButtonList = () => {
-  const [dataCheckboxList, setDataCheckboxList] =
-    useState<IToggleButtonList[]>(dataToggleButtonList);
+function ToggleButtonList() {
+  const [dataCheckboxList, setDataCheckboxList] = useState<IToggleButtonList[]>(dataToggleButtonList);
 
   const onChange = useCallback((id: number, checked: boolean) => {
-    setDataCheckboxList((old) =>
-      old.map((o) => (o.id === id ? { ...o, checked } : o))
-    );
+    setDataCheckboxList((old) => old.map((o) => (o.id === id ? { ...o, checked } : o)));
   }, []);
 
   return (
     <div>
       <div className={styles['checkbox-list__form']}>
-        {dataCheckboxList.map((item) => {
-          return (
-            <ToggleButton
-              key={item.id}
-              id={item.id}
-              title={item.title}
-              name={item.name}
-              checked={item.checked || false}
-              onChange={onChange}
-            />
-          );
-        })}
+        {dataCheckboxList.map((item) => (
+          <ToggleButton
+            key={item.id}
+            id={item.id}
+            title={item.title}
+            name={item.name}
+            checked={item.checked || false}
+            onChange={onChange}
+          />
+        ))}
       </div>
     </div>
   );
-};
+}
 
 export default ToggleButtonList;

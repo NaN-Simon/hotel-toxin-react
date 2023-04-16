@@ -10,18 +10,18 @@ type IRateButton = {
 
 const classesRateButton = classNames(
   'material-icons',
-  styles['rate-button__item']
+  styles['rate-button__item'],
 );
 
 function stars(maxrate: number, rate: number) {
   const elemArr = [];
   for (let i = 1; i <= maxrate; i++) {
-    i <= rate ? elemArr.push(`star`) : elemArr.push(`star_border`);
+    i <= rate ? elemArr.push('star') : elemArr.push('star_border');
   }
   return elemArr;
 }
 
-const RateButton = ({ maxrate, rate, id }: IRateButton) => {
+function RateButton({ maxrate, rate, id }: IRateButton) {
   return (
     <div>
       {stars(maxrate, rate).map((el, index) => (
@@ -35,6 +35,6 @@ const RateButton = ({ maxrate, rate, id }: IRateButton) => {
       ))}
     </div>
   );
-};
+}
 
 export default RateButton;

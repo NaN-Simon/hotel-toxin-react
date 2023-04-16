@@ -9,15 +9,17 @@ type ITextField = {
   focused?: boolean;
 };
 
-const TextField = ({ placeholder, name, arrow, focused }: ITextField) => {
+function TextField({
+  placeholder, name, arrow, focused,
+}: ITextField) {
   const classesArrow = classNames(
     'material-icons',
-    styles['text-field__arrow']
+    styles['text-field__arrow'],
   );
   const classesTextField = classNames(
     styles['text-field__input'],
     focused && styles['text-field__input--focused'],
-    arrow && styles['text-field__input--arrow']
+    arrow && styles['text-field__input--arrow'],
   );
 
   function hasArrow() {
@@ -26,7 +28,7 @@ const TextField = ({ placeholder, name, arrow, focused }: ITextField) => {
 
   return (
     <div className={styles['text-field']}>
-      {arrow && <span></span>}
+      {arrow && <span />}
       <input
         className={classesTextField}
         type="text"
@@ -36,6 +38,11 @@ const TextField = ({ placeholder, name, arrow, focused }: ITextField) => {
       {arrow && hasArrow()}
     </div>
   );
-};
+}
 
 export default TextField;
+
+TextField.defaultProps = {
+  arrow: null,
+  focused: null,
+};

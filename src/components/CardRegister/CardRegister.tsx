@@ -2,12 +2,12 @@ import React from 'react';
 import Heading from '../Heading/Heading';
 import TextField from '../TextField/TextField';
 import RadioButton from '../RadioButton/RadioButton';
-import TextFieldMask from '../../components/TextFieldMask/TextFieldMask';
-import Button from '../../components/Button/Button';
+import TextFieldMask from '../TextFieldMask/TextFieldMask';
+import Button from '../Button/Button';
 import ToggleButton from '../ToggleButton/ToggleButton';
 import styles from './CardRegister.module.scss';
 
-const CardRegister = () => {
+function CardRegister() {
   return (
     <form name="card-register1" className={styles['card-register']}>
       <div className={styles['card-register__heading']}>
@@ -20,7 +20,7 @@ const CardRegister = () => {
         <TextField placeholder="Фамилия" name="second-name" />
       </div>
       <div className={styles['card-register__gender']}>
-        <RadioButton preset='gender' name= 'gender' inline />
+        <RadioButton preset="gender" name="gender" inline />
       </div>
       <div className={styles['card-register__birthday']}>
         <div className={styles['card-register__birthday-heading']}>
@@ -67,6 +67,6 @@ const CardRegister = () => {
       </div>
     </form>
   );
-};
+}
 
 export default CardRegister;

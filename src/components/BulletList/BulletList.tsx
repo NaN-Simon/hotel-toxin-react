@@ -19,18 +19,16 @@ interface IBulletList {
   checked?: boolean;
 }
 
-const BulletList = () => {
+function BulletList() {
   return (
     <ul className={styles['bullet-list']}>
-      {dataProhibited.map((item: IBulletList) => {
-        return (
-          <li className={styles['bullet-list__title']} key={item.id}>
-            {item.title}
-          </li>
-        );
-      })}
+      {dataProhibited.map((item: IBulletList) => (
+        <li className={styles['bullet-list__title']} key={item.id}>
+          {item.title}
+        </li>
+      ))}
     </ul>
   );
-};
+}
 
 export default BulletList;

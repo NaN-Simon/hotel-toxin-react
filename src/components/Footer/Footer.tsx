@@ -7,13 +7,13 @@ import Instagram from '../../assets/icons/Instagram';
 import Facebook from '../../assets/icons/Facebook';
 import styles from './Footer.module.scss';
 
-const Footer = () => {
+function Footer() {
   return (
     <div className={styles['footer']}>
       <div className={styles['footer__container']}>
         <div className={styles['footer__widgets']}>
           <div className={styles['footer__widgets-booking']}>
-            <span className={styles['footer__widgets-booking-logo']}></span>
+            <span className={styles['footer__widgets-booking-logo']} />
             <span className={styles['footer__widgets-booking-discribe']}>
               Бронирование номеров в лучшем отеле 2019 года по версии ассоциации
               «Отельные взгляды»
@@ -41,6 +41,6 @@ const Footer = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Footer;

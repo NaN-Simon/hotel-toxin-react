@@ -3,6 +3,12 @@ import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import styles from './Navigation.module.scss';
 
+type Idroplist = {
+  id: number;
+  subtitle: string;
+  suburl: string;
+};
+
 type INavigation = {
   id: number;
   title: string;
@@ -11,31 +17,23 @@ type INavigation = {
   droplist?: Idroplist[];
 };
 
-type Idroplist = {
-  id: number;
-  subtitle: string;
-  suburl: string;
-};
-
 type INavigationArray = {
   dataNavigation: INavigation[];
   isHorizontal?: boolean;
 };
 
 function renderSubItems(item: INavigation) {
-  return item.droplist?.map((subitem) => {
-    return (
-      <div key={subitem.id} className={styles['navigation__subitem']}>
-        {subitem.subtitle}
-      </div>
-    );
-  });
+  return item.droplist?.map((subitem) => (
+    <div key={subitem.id} className={styles['navigation__subitem']}>
+      {subitem.subtitle}
+    </div>
+  ));
 }
 
-const Navigation = ({ dataNavigation, isHorizontal }: INavigationArray) => {
+function Navigation({ dataNavigation, isHorizontal }: INavigationArray) {
   const classesNavigation = classNames(
     styles['navigation'],
-    isHorizontal && classNames(styles['navigation--horizontal'])
+    isHorizontal && classNames(styles['navigation--horizontal']),
   );
 
   return (
@@ -44,15 +42,15 @@ const Navigation = ({ dataNavigation, isHorizontal }: INavigationArray) => {
         const [opened, setOpened] = useState(false);
         const classesItem = classNames(
           styles['navigation__item'],
-          item.current && styles['navigation__item--current']
+          item.current && styles['navigation__item--current'],
         );
         const classesItemIco = classNames(item.droplist && 'material-icons');
         const classesItemContainer = classNames(
-          styles['navigation__item-container']
+          styles['navigation__item-container'],
         );
         const classesSubItems = classNames(
           styles['navigation__subitems'],
-          opened && styles['navigation__subitems--open']
+          opened && styles['navigation__subitems--open'],
         );
 
         return (
@@ -79,6 +77,10 @@ const Navigation = ({ dataNavigation, isHorizontal }: INavigationArray) => {
       })}
     </ul>
   );
-};
+}
 
 export default Navigation;
+
+Navigation.defaultProps = {
+  isHorizontal: false,
+};

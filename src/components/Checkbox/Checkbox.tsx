@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 import classNames from 'classnames';
 import styles from './Checkbox.module.scss';
@@ -11,17 +12,17 @@ interface ICheckbox {
   onChange: (id: number, checked: boolean) => void;
 }
 
-const Checkbox = ({
+function Checkbox({
   id,
   title,
   description,
   name,
   checked,
   onChange,
-}: ICheckbox) => {
+}: ICheckbox) {
   const classesTextTitle = classNames(
     styles['checkbox__text-title'],
-    description && styles['checkbox__text-title--rich']
+    description && styles['checkbox__text-title--rich'],
   );
   return (
     <label className={styles['checkbox__label']}>
@@ -37,7 +38,7 @@ const Checkbox = ({
 
       <span
         className={classNames('material-icons', styles['checkbox__box'])}
-      ></span>
+      />
       <div className={styles['checkbox__text']}>
         <span className={classesTextTitle}>{title}</span>
         {description && (
@@ -48,6 +49,10 @@ const Checkbox = ({
       </div>
     </label>
   );
-};
+}
 
 export default Checkbox;
+
+Checkbox.defaultProps = {
+  description: null,
+};

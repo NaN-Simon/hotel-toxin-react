@@ -13,8 +13,9 @@ const dataReview = [
     likeCount: 12,
     likeName: 'like3',
     likeChecked: true,
-    description:
-      'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.',
+    description: `Великолепный матрас на кровати в основной спальне!
+    А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие.
+    Выкрикивал комплименты повару — никто не жаловался из соседей.`,
   },
 ];
 
@@ -38,54 +39,52 @@ const getDaysLater = (date: Date) => {
 
 const getPluralDay = (number: number, words: string[]) => {
   const value = Math.abs(number) % 100;
-  let num = value % 10;
-  if (value > 10 && value < 20) return value + ' ' + words[2];
-  if (num > 1 && num < 5) return value + ' ' + words[1];
-  if (num == 1) return value + ' ' + words[0];
-  return number + ' ' + words[2];
+  const num = value % 10;
+  if (value > 10 && value < 20) return `${value} ${words[2]}`;
+  if (num > 1 && num < 5) return `${value} ${words[1]}`;
+  if (num === 1) return `${value} ${words[0]}`;
+  return `${number} ${words[2]}`;
 };
 
-const Review = () => {
+function Review() {
   return (
     <>
-      {dataReview.map((item: IDataReview) => {
-        return (
-          <div key={item.id} className={styles['review']}>
-            <div className={styles['review__data']}>
-              <div className={styles['review__data-photo']}>
-                <Avatar alt={item.alt} imageSource={item.imageSource} />
-              </div>
-              <div className={styles['review__data-info']}>
-                <div className={styles['review__data-info-name']}>
-                  {item.name}
-                </div>
-                <div className={styles['review__data-info-date']}>
-                  {getPluralDay(getDaysLater(item.date), [
-                    'день',
-                    'дня',
-                    'дней',
-                  ]) + ' назад'}
-                </div>
-              </div>
+      {dataReview.map((item: IDataReview) => (
+        <div key={item.id} className={styles['review']}>
+          <div className={styles['review__data']}>
+            <div className={styles['review__data-photo']}>
+              <Avatar alt={item.alt} imageSource={item.imageSource} />
             </div>
-            <div className={styles['review__feedback']}>
-              <div className={styles['review__feedback-like']}>
-                <LikeButton
-                  id={item.id}
-                  title={item.likeCount}
-                  name={item.likeName}
-                  checked={item.likeChecked}
-                />
+            <div className={styles['review__data-info']}>
+              <div className={styles['review__data-info-name']}>
+                {item.name}
               </div>
-              <div className={styles['review__feedback-description']}>
-                {item.description}
+              <div className={styles['review__data-info-date']}>
+                {`${getPluralDay(getDaysLater(item.date), [
+                  'день',
+                  'дня',
+                  'дней',
+                ])} назад`}
               </div>
             </div>
           </div>
-        );
-      })}
+          <div className={styles['review__feedback']}>
+            <div className={styles['review__feedback-like']}>
+              <LikeButton
+                id={item.id}
+                title={item.likeCount}
+                name={item.likeName}
+                checked={item.likeChecked}
+              />
+            </div>
+            <div className={styles['review__feedback-description']}>
+              {item.description}
+            </div>
+          </div>
+        </div>
+      ))}
     </>
   );
-};
+}
 
 export default Review;

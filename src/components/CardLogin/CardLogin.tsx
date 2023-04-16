@@ -1,10 +1,10 @@
 import React from 'react';
-import Button from '../../components/Button/Button';
+import Button from '../Button/Button';
 import Heading from '../Heading/Heading';
 import TextField from '../TextField/TextField';
 import styles from './CardLogin.module.scss';
 
-const CardLogin = () => {
+function CardLogin() {
   return (
     <form name="card-login1" className={styles['card-login']}>
       <div className={styles['card-login__heading']}>
@@ -29,6 +29,6 @@ const CardLogin = () => {
       </div>
     </form>
   );
-};
+}
 
 export default CardLogin;

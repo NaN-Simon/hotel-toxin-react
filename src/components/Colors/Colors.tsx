@@ -13,22 +13,20 @@ interface IColorArray {
   colorProps: IColors[];
 }
 
-const Colors = ({ colorProps }: IColorArray) => {
+function Colors({ colorProps }: IColorArray) {
   return (
     <div className={styles['colors']}>
-      {colorProps.map((item) => {
-        return (
-          <Color
-            key={item.id}
-            id={item.id}
-            color={item.color}
-            title={item.title}
-            hexName={item.hexName}
-          />
-        );
-      })}
+      {colorProps.map((item) => (
+        <Color
+          key={item.id}
+          id={item.id}
+          color={item.color}
+          title={item.title}
+          hexName={item.hexName}
+        />
+      ))}
     </div>
   );
-};
+}
 
 export default Colors;

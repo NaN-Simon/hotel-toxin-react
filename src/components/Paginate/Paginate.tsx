@@ -9,8 +9,8 @@ type CurrentItems = { currentItems: number[] };
 function Items({ currentItems }: CurrentItems) {
   return (
     <ul className="paginate__list">
-      {currentItems &&
-        currentItems.map((item: number) => (
+      {currentItems
+        && currentItems.map((item: number) => (
           <div className="paginate__item" key={item}>
             {item}
           </div>
@@ -19,10 +19,9 @@ function Items({ currentItems }: CurrentItems) {
   );
 }
 
-const Paginate = ({ itemsPerPage, itemCounts }: ItemsPerPage) => {
+function Paginate({ itemsPerPage, itemCounts }: ItemsPerPage) {
   const maxDisplayCounts = 100;
-  const moreThanCount =
-    itemCounts > maxDisplayCounts ? `${maxDisplayCounts}+` : itemCounts;
+  const moreThanCount = itemCounts > maxDisplayCounts ? `${maxDisplayCounts}+` : itemCounts;
   const items: number[] = [];
 
   for (let i = 1; i <= itemCounts; i++) {
@@ -60,11 +59,13 @@ const Paginate = ({ itemsPerPage, itemCounts }: ItemsPerPage) => {
         nextClassName="navigate__next"
         nextLinkClassName="material-icons"
       />
-      <div>{`${
-        itemOffset + 1
-      } - ${endOffset} из ${moreThanCount} вариантов аренды`}</div>
+      <div>
+        {`${
+          itemOffset + 1
+        } - ${endOffset} из ${moreThanCount} вариантов аренды`}
+      </div>
     </>
   );
-};
+}
 
 export default Paginate;

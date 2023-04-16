@@ -1,11 +1,11 @@
 import React from 'react';
-import DatePickerCustom from '../../components/DatePicker/DatePicker';
-import Dropdown from '../../components/Dropdown/Dropdown';
-import Button from '../../components/Button/Button';
+import DatePickerCustom from '../DatePicker/DatePicker';
+import Dropdown from '../Dropdown/Dropdown';
+import Button from '../Button/Button';
 import Heading from '../Heading/Heading';
 import styles from './CardSearch.module.scss';
 
-const CardSearch = () => {
+function CardSearch() {
   return (
     <form name="card-search1" className={styles['card-search']}>
       <div className={styles['card-search__heading']}>
@@ -32,6 +32,6 @@ const CardSearch = () => {
       </div>
     </form>
   );
-};
+}
 
 export default CardSearch;

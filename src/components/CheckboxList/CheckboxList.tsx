@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
-import Checkbox from '../Checkbox/Checkbox';
 import classNames from 'classnames';
+import Checkbox from '../Checkbox/Checkbox';
 import styles from './CheckboxList.module.scss';
 
 const dataAllowList = [
@@ -17,10 +17,18 @@ const dataAllowList = [
 const dataExtraComfortList = [
   { id: 4, title: 'Завтрак', name: 'breakfast' },
   { id: 5, title: 'Письменный стол', name: 'desk' },
-  { id: 6, title: 'Стул для кормления', name: 'child-chair', checked: true },
-  { id: 7, title: 'Кроватка', name: 'child-bed', checked: false },
-  { id: 8, title: 'Телевизор', name: 'tv', checked: true },
-  { id: 9, title: 'Шампунь', name: 'shampoo', checked: true },
+  {
+    id: 6, title: 'Стул для кормления', name: 'child-chair', checked: true,
+  },
+  {
+    id: 7, title: 'Кроватка', name: 'child-bed', checked: false,
+  },
+  {
+    id: 8, title: 'Телевизор', name: 'tv', checked: true,
+  },
+  {
+    id: 9, title: 'Шампунь', name: 'shampoo', checked: true,
+  },
 ];
 
 const dataNeededsList = [
@@ -52,11 +60,11 @@ interface IDataCheckboxList {
   checked?: boolean;
 }
 
-const CheckboxList = ({
+function CheckboxList({
   preset,
   dropWrapper,
   isOpened = true,
-}: ICheckboxList) => {
+}: ICheckboxList) {
   let dataPreset = [];
   switch (preset) {
     case 'allowList':
@@ -71,23 +79,20 @@ const CheckboxList = ({
     default:
       dataPreset = dataAllowList;
   }
-  const [checkboxList, setCheckboxList] =
-    useState<IDataCheckboxList[]>(dataPreset);
+  const [checkboxList, setCheckboxList] = useState<IDataCheckboxList[]>(dataPreset);
   const [opened, setOpened] = useState(isOpened);
 
   const classesCheckbox = classNames(
     styles['checkbox-list__form'],
-    opened && styles['checkbox-list__form--open']
+    opened && styles['checkbox-list__form--open'],
   );
   const classesCheckboxBtn = classNames(
     'material-icons',
-    styles['checkbox-list__btn']
+    styles['checkbox-list__btn'],
   );
 
   const onChange = useCallback((id: number, checked: boolean) => {
-    setCheckboxList((old) =>
-      old.map((o) => (o.id === id ? { ...o, checked } : o))
-    );
+    setCheckboxList((old) => old.map((o) => (o.id === id ? { ...o, checked } : o)));
   }, []);
 
   return (
@@ -95,28 +100,34 @@ const CheckboxList = ({
       {dropWrapper && (
         <div
           className={styles['checkbox-list__wrapper']}
+          role="presentation" //todo
           onClick={() => setOpened(!opened)}
+          onKeyDown={() => setOpened(!opened)} //todo
         >
           <span className={classesCheckboxBtn}>expand_more</span>
         </div>
       )}
       <div className={classesCheckbox}>
-        {checkboxList.map((item) => {
-          return (
-            <Checkbox
-              key={item.id}
-              id={item.id}
-              title={item.title}
-              description={item.description}
-              name={item.name}
-              checked={item.checked || false}
-              onChange={onChange}
-            />
-          );
-        })}
+        {checkboxList.map((item) => (
+          <Checkbox
+            key={item.id}
+            id={item.id}
+            title={item.title}
+            description={item.description}
+            name={item.name}
+            checked={item.checked || false}
+            onChange={onChange}
+          />
+        ))}
       </div>
     </div>
   );
-};
+}
 
 export default CheckboxList;
+
+CheckboxList.defaultProps = {
+  preset: null,
+  dropWrapper: null,
+  isOpened: null,
+};

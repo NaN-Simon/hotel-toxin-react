@@ -9,13 +9,13 @@ type IToggleButton = {
   onChange?: (id: number, checked: boolean) => void;
 };
 
-const ToggleButton = ({
+function ToggleButton({
   id,
   title,
   name,
   checked,
   onChange,
-}: IToggleButton) => {
+}: IToggleButton) {
   return (
     <label className={styles['toggle']}>
       <input
@@ -30,6 +30,11 @@ const ToggleButton = ({
       <span className={styles['toggle__input-title']}>{title}</span>
     </label>
   );
-};
+}
 
 export default ToggleButton;
+
+ToggleButton.defaultProps = {
+  checked: null,
+  onChange: null,
+};

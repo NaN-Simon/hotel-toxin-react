@@ -5,12 +5,12 @@ import styles from './RadioButton.module.scss';
 const defaultGenderPreset = [
   { value: 'Мужчина', id: 'gender-f', checked: true },
   { value: 'Женщина', id: 'gender-m' },
-]
+];
 const extraGenderPreset = [
   { value: 'Мужчина', id: 'gender-f', checked: true },
   { value: 'Женщина', id: 'gender-m' },
   { value: 'Другое', id: 'gender-other' },
-]
+];
 
 type IPresetList = {
   value: string;
@@ -24,14 +24,13 @@ type IRadioButton = {
   inline: boolean
 }
 
-const RadioButton = ({preset, name, inline}: IRadioButton) => {
-
+function RadioButton({ preset, name, inline }: IRadioButton) {
   const dataPreset: IPresetList[] = preset === 'gender' ? defaultGenderPreset : extraGenderPreset;
   const [radioChecked, setRadioChecked] = useState(dataPreset[0].value);
 
   const classesRadioButton = classNames(
     styles['checkbox-radio'],
-    inline && styles['checkbox-radio--inline']
+    inline && styles['checkbox-radio--inline'],
   );
 
   const onCheckboxChange = (e: React.FormEvent<HTMLInputElement>) => {
@@ -40,24 +39,22 @@ const RadioButton = ({preset, name, inline}: IRadioButton) => {
 
   return (
     <div className={classesRadioButton}>
-      {dataPreset.map((item) => {
-        return (
-          <div key={item.id} className={styles['checkbox-radio']}>
-            <input
-              className={styles['checkbox-radio__input']}
-              type="radio"
-              name={name}
-              value={item.value}
-              id={item.id}
-              checked={radioChecked === item.value}
-              onChange={onCheckboxChange}
-            />
-            <label htmlFor={item.id}>{item.value}</label>
-          </div>
-        );
-      })}
+      {dataPreset.map((item) => (
+        <div key={item.id} className={styles['checkbox-radio']}>
+          <input
+            className={styles['checkbox-radio__input']}
+            type="radio"
+            name={name}
+            value={item.value}
+            id={item.id}
+            checked={radioChecked === item.value}
+            onChange={onCheckboxChange}
+          />
+          <label htmlFor={item.id}>{item.value}</label>
+        </div>
+      ))}
     </div>
   );
-};
+}
 
 export default RadioButton;
