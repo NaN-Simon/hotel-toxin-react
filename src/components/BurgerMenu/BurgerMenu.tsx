@@ -34,7 +34,6 @@ function BurgerMenu({ dataNavigation, type, userName }: INavigationArray) {
     styles['burger__nav'],
     openMenu && styles['burger__nav--open'],
   );
-  console.log(dataNavigation);
 
   return (
     <div className={styles['burger__container']}>

@@ -1,4 +1,3 @@
-/*eslint-disable react/jsx-props-no-spreading */
 import React, { forwardRef, LegacyRef } from 'react';
 import InputMask, { ReactInputMask } from 'react-input-mask';
 import classNames from 'classnames';

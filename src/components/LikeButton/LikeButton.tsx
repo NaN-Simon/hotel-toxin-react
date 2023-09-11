@@ -1,4 +1,3 @@
-/*eslint-disable jsx-a11y/label-has-for */
 import React, { useState } from 'react';
 import classNames from 'classnames';
 import styles from './LikeButton.module.scss';

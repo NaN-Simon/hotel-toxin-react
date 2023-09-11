@@ -27,6 +27,8 @@ module.exports = {
         }
     },
     "rules": {
+        "jsx-a11y/label-has-for": "off",
+        "react/jsx-props-no-spreading": "off",
         "linebreak-style": ["error", "windows"],
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".ts", ".jsx", ".tsx"] }],
         "max-len": ["error", {
@@ -48,11 +50,6 @@ module.exports = {
         "dot-notation": "off",
         "no-unused-expressions": 0,
         "jsx-a11y/label-has-associated-control": ["error", {
-            "required": {
-                "some": ["nesting", "id"]
-            }
-        }],
-        "jsx-a11y/label-has-for": ["error", {
             "required": {
                 "some": ["nesting", "id"]
             }
